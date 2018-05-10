@@ -7,7 +7,9 @@ import android.view.animation.*;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-
+/**
+ * 闪屏页
+ */
 public class SplashActivity extends Activity {
 
 
