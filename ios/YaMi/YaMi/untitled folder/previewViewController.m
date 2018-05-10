@@ -1,22 +1,22 @@
 //
-//  preview.m
+//  previewViewController.m
 //  YaMi
 //
-//  Created by BJCA on 2018/5/9.
+//  Created by BJCA on 2018/5/10.
 //  Copyright © 2018年 BJCA. All rights reserved.
 //
 
-#import "preview.h"
+#import "previewViewController.h"
 
-@interface preview ()
+@interface previewViewController ()
 
 @end
 
-@implementation preview
+@implementation previewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
