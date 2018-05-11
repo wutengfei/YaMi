@@ -1,4 +1,4 @@
-package cn.org.bjca.yami.view;
+package cn.org.bjca.yami.adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
