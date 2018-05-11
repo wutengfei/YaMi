@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseLoopBanner.h"
 
-@interface previewViewController : UIViewController
-
+@interface previewViewController : UIViewController<UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *navView;
+@property (weak, nonatomic) IBOutlet UIView *infoView;
 @end
