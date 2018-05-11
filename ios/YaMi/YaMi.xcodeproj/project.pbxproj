@@ -16,9 +16,9 @@
 		282BA34C20A1784A001EBA20 /* LoopBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 282BA34B20A1784A001EBA20 /* LoopBanner.m */; };
 		2857D5DA20A28A1700B8598E /* orderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5D920A28A1700B8598E /* orderViewController.m */; };
 		2857D5DC20A28A2D00B8598E /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2857D5DB20A28A2D00B8598E /* Order.storyboard */; };
-		2857D5DF20A296B500B8598E /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5DE20A296B500B8598E /* NavigationController.m */; };
-		2857D5E420A2F51A00B8598E /* preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5E220A2F51A00B8598E /* preview.m */; };
-		2857D5E520A2F51A00B8598E /* preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2857D5E320A2F51A00B8598E /* preview.xib */; };
+		2857D5E720A4422500B8598E /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2857D5E620A4422500B8598E /* Preview.storyboard */; };
+		2857D5EA20A4442C00B8598E /* previewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5E920A4442C00B8598E /* previewViewController.m */; };
+		2857D5ED20A53C3F00B8598E /* BaseLoopBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5EC20A53C3F00B8598E /* BaseLoopBanner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +37,11 @@
 		2857D5D820A28A1700B8598E /* orderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderViewController.h; sourceTree = "<group>"; };
 		2857D5D920A28A1700B8598E /* orderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderViewController.m; sourceTree = "<group>"; };
 		2857D5DB20A28A2D00B8598E /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
-		2857D5DD20A296B500B8598E /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationController.h; path = ../NavigationController.h; sourceTree = "<group>"; };
-		2857D5DE20A296B500B8598E /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationController.m; path = ../NavigationController.m; sourceTree = "<group>"; };
-		2857D5E120A2F51A00B8598E /* preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = preview.h; sourceTree = "<group>"; };
-		2857D5E220A2F51A00B8598E /* preview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = preview.m; sourceTree = "<group>"; };
-		2857D5E320A2F51A00B8598E /* preview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = preview.xib; sourceTree = "<group>"; };
+		2857D5E620A4422500B8598E /* Preview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preview.storyboard; sourceTree = "<group>"; };
+		2857D5E820A4442B00B8598E /* previewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = previewViewController.h; sourceTree = "<group>"; };
+		2857D5E920A4442C00B8598E /* previewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = previewViewController.m; sourceTree = "<group>"; };
+		2857D5EB20A53C3F00B8598E /* BaseLoopBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoopBanner.h; sourceTree = "<group>"; };
+		2857D5EC20A53C3F00B8598E /* BaseLoopBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoopBanner.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +101,10 @@
 		282BA34420A14A7F001EBA20 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				2857D5DD20A296B500B8598E /* NavigationController.h */,
-				2857D5DE20A296B500B8598E /* NavigationController.m */,
 				282BA34B20A1784A001EBA20 /* LoopBanner.m */,
 				282BA34A20A17841001EBA20 /* LoopBanner.h */,
+				2857D5EB20A53C3F00B8598E /* BaseLoopBanner.h */,
+				2857D5EC20A53C3F00B8598E /* BaseLoopBanner.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -122,9 +122,9 @@
 		2857D5E020A2F4A700B8598E /* preview */ = {
 			isa = PBXGroup;
 			children = (
-				2857D5E120A2F51A00B8598E /* preview.h */,
-				2857D5E220A2F51A00B8598E /* preview.m */,
-				2857D5E320A2F51A00B8598E /* preview.xib */,
+				2857D5E620A4422500B8598E /* Preview.storyboard */,
+				2857D5E820A4442B00B8598E /* previewViewController.h */,
+				2857D5E920A4442C00B8598E /* previewViewController.m */,
 			);
 			name = preview;
 			path = "untitled folder";
@@ -191,9 +191,9 @@
 			files = (
 				281688C020A0479A003D8962 /* Assets.xcassets in Resources */,
 				282BA34920A17787001EBA20 /* Launch Screen.storyboard in Resources */,
-				2857D5E520A2F51A00B8598E /* preview.xib in Resources */,
 				281688BE20A0479A003D8962 /* Main.storyboard in Resources */,
 				2857D5DC20A28A2D00B8598E /* Order.storyboard in Resources */,
+				2857D5E720A4422500B8598E /* Preview.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,11 +204,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2857D5E420A2F51A00B8598E /* preview.m in Sources */,
+				2857D5ED20A53C3F00B8598E /* BaseLoopBanner.m in Sources */,
 				282BA34C20A1784A001EBA20 /* LoopBanner.m in Sources */,
 				281688B820A0479A003D8962 /* AppDelegate.m in Sources */,
+				2857D5EA20A4442C00B8598E /* previewViewController.m in Sources */,
 				281688B520A0479A003D8962 /* main.m in Sources */,
-				2857D5DF20A296B500B8598E /* NavigationController.m in Sources */,
 				2857D5DA20A28A1700B8598E /* orderViewController.m in Sources */,
 				281688D720A05E11003D8962 /* ViewController.m in Sources */,
 			);

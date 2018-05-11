@@ -18,7 +18,7 @@
         //enter order view
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
         orderViewController* orderView = [sb instantiateViewControllerWithIdentifier:@"orderViewController"];
-        self.navigationController.navigationBarHidden = NO;
+        //self.navigationController.navigationBarHidden = NO;
         //[self.navigationController pushViewController:orderView animated:NO];
         [self presentViewController:orderView animated:NO completion:nil];
         orderView.navigationItem.title = @"今日美味";
