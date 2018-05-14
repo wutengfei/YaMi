@@ -14,6 +14,8 @@
 		281688D720A05E11003D8962 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281688D620A05E11003D8962 /* ViewController.m */; };
 		282BA34920A17787001EBA20 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282BA34820A17787001EBA20 /* Launch Screen.storyboard */; };
 		282BA34C20A1784A001EBA20 /* LoopBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 282BA34B20A1784A001EBA20 /* LoopBanner.m */; };
+		2849C8A920A97382003EA472 /* submitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2849C8A820A97382003EA472 /* submitViewController.m */; };
+		2849C8AB20A97394003EA472 /* Submit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2849C8AA20A97394003EA472 /* Submit.storyboard */; };
 		2857D5DA20A28A1700B8598E /* orderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5D920A28A1700B8598E /* orderViewController.m */; };
 		2857D5DC20A28A2D00B8598E /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2857D5DB20A28A2D00B8598E /* Order.storyboard */; };
 		2857D5E720A4422500B8598E /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2857D5E620A4422500B8598E /* Preview.storyboard */; };
@@ -34,6 +36,9 @@
 		282BA34820A17787001EBA20 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		282BA34A20A17841001EBA20 /* LoopBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopBanner.h; sourceTree = "<group>"; };
 		282BA34B20A1784A001EBA20 /* LoopBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopBanner.m; sourceTree = "<group>"; };
+		2849C8A720A97382003EA472 /* submitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = submitViewController.h; sourceTree = "<group>"; };
+		2849C8A820A97382003EA472 /* submitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = submitViewController.m; sourceTree = "<group>"; };
+		2849C8AA20A97394003EA472 /* Submit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Submit.storyboard; sourceTree = "<group>"; };
 		2857D5D820A28A1700B8598E /* orderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderViewController.h; sourceTree = "<group>"; };
 		2857D5D920A28A1700B8598E /* orderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderViewController.m; sourceTree = "<group>"; };
 		2857D5DB20A28A2D00B8598E /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 		281688B220A04799003D8962 /* YaMi */ = {
 			isa = PBXGroup;
 			children = (
+				2849C8A620A97365003EA472 /* submit */,
 				2857D5E020A2F4A700B8598E /* preview */,
 				2857D5D720A289FD00B8598E /* order */,
 				282BA34420A14A7F001EBA20 /* classes */,
@@ -107,6 +113,16 @@
 				2857D5EC20A53C3F00B8598E /* BaseLoopBanner.m */,
 			);
 			path = classes;
+			sourceTree = "<group>";
+		};
+		2849C8A620A97365003EA472 /* submit */ = {
+			isa = PBXGroup;
+			children = (
+				2849C8A720A97382003EA472 /* submitViewController.h */,
+				2849C8A820A97382003EA472 /* submitViewController.m */,
+				2849C8AA20A97394003EA472 /* Submit.storyboard */,
+			);
+			path = submit;
 			sourceTree = "<group>";
 		};
 		2857D5D720A289FD00B8598E /* order */ = {
@@ -189,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2849C8AB20A97394003EA472 /* Submit.storyboard in Resources */,
 				281688C020A0479A003D8962 /* Assets.xcassets in Resources */,
 				282BA34920A17787001EBA20 /* Launch Screen.storyboard in Resources */,
 				281688BE20A0479A003D8962 /* Main.storyboard in Resources */,
@@ -208,6 +225,7 @@
 				282BA34C20A1784A001EBA20 /* LoopBanner.m in Sources */,
 				281688B820A0479A003D8962 /* AppDelegate.m in Sources */,
 				2857D5EA20A4442C00B8598E /* previewViewController.m in Sources */,
+				2849C8A920A97382003EA472 /* submitViewController.m in Sources */,
 				281688B520A0479A003D8962 /* main.m in Sources */,
 				2857D5DA20A28A1700B8598E /* orderViewController.m in Sources */,
 				281688D720A05E11003D8962 /* ViewController.m in Sources */,
