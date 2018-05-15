@@ -8,13 +8,14 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-
-@interface AppDelegate ()
+#import "httpController.h"
+@interface AppDelegate (){
+    
+}
 
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -24,8 +25,8 @@
     //navContrl.navigationBarHidden = YES;
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *mainControl = sb.instantiateInitialViewController;
-
     [navContrl pushViewController:mainControl animated:NO];*/
+    [[[httpController alloc]init] createRequest];
     return YES;
 }
 

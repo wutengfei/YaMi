@@ -14,11 +14,15 @@
 		281688D720A05E11003D8962 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281688D620A05E11003D8962 /* ViewController.m */; };
 		282BA34920A17787001EBA20 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282BA34820A17787001EBA20 /* Launch Screen.storyboard */; };
 		282BA34C20A1784A001EBA20 /* LoopBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 282BA34B20A1784A001EBA20 /* LoopBanner.m */; };
+		2849C8A920A97382003EA472 /* submitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2849C8A820A97382003EA472 /* submitViewController.m */; };
+		2849C8AB20A97394003EA472 /* Submit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2849C8AA20A97394003EA472 /* Submit.storyboard */; };
+		2849C8B620A99B6F003EA472 /* Preview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2849C8B320A99B6F003EA472 /* Preview.storyboard */; };
+		2849C8B720A99B6F003EA472 /* previewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2849C8B520A99B6F003EA472 /* previewViewController.m */; };
 		2857D5DA20A28A1700B8598E /* orderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5D920A28A1700B8598E /* orderViewController.m */; };
 		2857D5DC20A28A2D00B8598E /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2857D5DB20A28A2D00B8598E /* Order.storyboard */; };
-		2857D5DF20A296B500B8598E /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5DE20A296B500B8598E /* NavigationController.m */; };
-		2857D5E420A2F51A00B8598E /* preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5E220A2F51A00B8598E /* preview.m */; };
-		2857D5E520A2F51A00B8598E /* preview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2857D5E320A2F51A00B8598E /* preview.xib */; };
+		2857D5ED20A53C3F00B8598E /* BaseLoopBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2857D5EC20A53C3F00B8598E /* BaseLoopBanner.m */; };
+		2875AE9E20AAC62A00CC8154 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 2875AE9D20AAC62A00CC8154 /* Module.m */; };
+		2875AEA120AAD8C900CC8154 /* httpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2875AEA020AAD8C900CC8154 /* httpController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,14 +38,21 @@
 		282BA34820A17787001EBA20 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		282BA34A20A17841001EBA20 /* LoopBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopBanner.h; sourceTree = "<group>"; };
 		282BA34B20A1784A001EBA20 /* LoopBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopBanner.m; sourceTree = "<group>"; };
+		2849C8A720A97382003EA472 /* submitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = submitViewController.h; sourceTree = "<group>"; };
+		2849C8A820A97382003EA472 /* submitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = submitViewController.m; sourceTree = "<group>"; };
+		2849C8AA20A97394003EA472 /* Submit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Submit.storyboard; sourceTree = "<group>"; };
+		2849C8B320A99B6F003EA472 /* Preview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preview.storyboard; sourceTree = "<group>"; };
+		2849C8B420A99B6F003EA472 /* previewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = previewViewController.h; sourceTree = "<group>"; };
+		2849C8B520A99B6F003EA472 /* previewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = previewViewController.m; sourceTree = "<group>"; };
 		2857D5D820A28A1700B8598E /* orderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderViewController.h; sourceTree = "<group>"; };
 		2857D5D920A28A1700B8598E /* orderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderViewController.m; sourceTree = "<group>"; };
 		2857D5DB20A28A2D00B8598E /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
-		2857D5DD20A296B500B8598E /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationController.h; path = ../NavigationController.h; sourceTree = "<group>"; };
-		2857D5DE20A296B500B8598E /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationController.m; path = ../NavigationController.m; sourceTree = "<group>"; };
-		2857D5E120A2F51A00B8598E /* preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = preview.h; sourceTree = "<group>"; };
-		2857D5E220A2F51A00B8598E /* preview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = preview.m; sourceTree = "<group>"; };
-		2857D5E320A2F51A00B8598E /* preview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = preview.xib; sourceTree = "<group>"; };
+		2857D5EB20A53C3F00B8598E /* BaseLoopBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoopBanner.h; sourceTree = "<group>"; };
+		2857D5EC20A53C3F00B8598E /* BaseLoopBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoopBanner.m; sourceTree = "<group>"; };
+		2875AE9C20AAC62A00CC8154 /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Module.h; sourceTree = "<group>"; };
+		2875AE9D20AAC62A00CC8154 /* Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Module.m; sourceTree = "<group>"; };
+		2875AE9F20AAD8C900CC8154 /* httpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = httpController.h; sourceTree = "<group>"; };
+		2875AEA020AAD8C900CC8154 /* httpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = httpController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +85,8 @@
 		281688B220A04799003D8962 /* YaMi */ = {
 			isa = PBXGroup;
 			children = (
-				2857D5E020A2F4A700B8598E /* preview */,
+				2849C8B220A99B6F003EA472 /* previewview */,
+				2849C8A620A97365003EA472 /* submit */,
 				2857D5D720A289FD00B8598E /* order */,
 				282BA34420A14A7F001EBA20 /* classes */,
 				282BA34820A17787001EBA20 /* Launch Screen.storyboard */,
@@ -86,6 +98,10 @@
 				281688BF20A0479A003D8962 /* Assets.xcassets */,
 				281688C420A0479A003D8962 /* Info.plist */,
 				281688B320A04799003D8962 /* Supporting Files */,
+				2875AE9C20AAC62A00CC8154 /* Module.h */,
+				2875AE9D20AAC62A00CC8154 /* Module.m */,
+				2875AE9F20AAD8C900CC8154 /* httpController.h */,
+				2875AEA020AAD8C900CC8154 /* httpController.m */,
 			);
 			path = YaMi;
 			sourceTree = "<group>";
@@ -101,13 +117,34 @@
 		282BA34420A14A7F001EBA20 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				2857D5DD20A296B500B8598E /* NavigationController.h */,
-				2857D5DE20A296B500B8598E /* NavigationController.m */,
 				282BA34B20A1784A001EBA20 /* LoopBanner.m */,
 				282BA34A20A17841001EBA20 /* LoopBanner.h */,
+				2857D5EB20A53C3F00B8598E /* BaseLoopBanner.h */,
+				2857D5EC20A53C3F00B8598E /* BaseLoopBanner.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
+		};
+		2849C8A620A97365003EA472 /* submit */ = {
+			isa = PBXGroup;
+			children = (
+				2849C8A720A97382003EA472 /* submitViewController.h */,
+				2849C8A820A97382003EA472 /* submitViewController.m */,
+				2849C8AA20A97394003EA472 /* Submit.storyboard */,
+			);
+			path = submit;
+			sourceTree = "<group>";
+		};
+		2849C8B220A99B6F003EA472 /* previewview */ = {
+			isa = PBXGroup;
+			children = (
+				2849C8B320A99B6F003EA472 /* Preview.storyboard */,
+				2849C8B420A99B6F003EA472 /* previewViewController.h */,
+				2849C8B520A99B6F003EA472 /* previewViewController.m */,
+			);
+			name = previewview;
+			path = YaMi/previewview;
+			sourceTree = SOURCE_ROOT;
 		};
 		2857D5D720A289FD00B8598E /* order */ = {
 			isa = PBXGroup;
@@ -117,17 +154,6 @@
 				2857D5DB20A28A2D00B8598E /* Order.storyboard */,
 			);
 			path = order;
-			sourceTree = "<group>";
-		};
-		2857D5E020A2F4A700B8598E /* preview */ = {
-			isa = PBXGroup;
-			children = (
-				2857D5E120A2F51A00B8598E /* preview.h */,
-				2857D5E220A2F51A00B8598E /* preview.m */,
-				2857D5E320A2F51A00B8598E /* preview.xib */,
-			);
-			name = preview;
-			path = "untitled folder";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,11 +215,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2849C8AB20A97394003EA472 /* Submit.storyboard in Resources */,
 				281688C020A0479A003D8962 /* Assets.xcassets in Resources */,
 				282BA34920A17787001EBA20 /* Launch Screen.storyboard in Resources */,
-				2857D5E520A2F51A00B8598E /* preview.xib in Resources */,
 				281688BE20A0479A003D8962 /* Main.storyboard in Resources */,
 				2857D5DC20A28A2D00B8598E /* Order.storyboard in Resources */,
+				2849C8B620A99B6F003EA472 /* Preview.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,12 +231,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2857D5E420A2F51A00B8598E /* preview.m in Sources */,
+				2857D5ED20A53C3F00B8598E /* BaseLoopBanner.m in Sources */,
 				282BA34C20A1784A001EBA20 /* LoopBanner.m in Sources */,
 				281688B820A0479A003D8962 /* AppDelegate.m in Sources */,
+				2875AE9E20AAC62A00CC8154 /* Module.m in Sources */,
+				2849C8A920A97382003EA472 /* submitViewController.m in Sources */,
+				2875AEA120AAD8C900CC8154 /* httpController.m in Sources */,
 				281688B520A0479A003D8962 /* main.m in Sources */,
-				2857D5DF20A296B500B8598E /* NavigationController.m in Sources */,
 				2857D5DA20A28A1700B8598E /* orderViewController.m in Sources */,
+				2849C8B720A99B6F003EA472 /* previewViewController.m in Sources */,
 				281688D720A05E11003D8962 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
