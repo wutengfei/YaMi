@@ -13,4 +13,6 @@
     UIScrollView* myScrollView;
 }
 - (instancetype)initWithFrame:(CGRect)frame viewArry:(NSArray* )array;
+- (UIScrollView*) getScrollView;
+- (void) setCurrentIndex:(int)currentIndex;
 @end

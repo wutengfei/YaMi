@@ -23,6 +23,10 @@
     __weak IBOutlet UIButton *randomButton;
 }
 - (IBAction)submit:(UIButton *)sender {
+    NSLog(@"submit");
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Submit" bundle:nil];
+    UIViewController* submit = [sb instantiateViewControllerWithIdentifier:@"submitViewController"];
+    [self presentViewController:submit animated:NO completion:nil];
 }
 - (IBAction)goToPreview:(UIBarButtonItem *)sender {
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Preview" bundle:nil];
@@ -269,7 +273,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    UITouch* touch = [touches anyObject];
+    //UITouch* touch = [touches anyObject];
     choosedMeal.center = CGPointMake(145, 680);
     choosedAdd.center = CGPointMake(245, 680);
     //NSLog(@"%@",NSStringFromCGPoint([touch locationInView:[touch view]]));

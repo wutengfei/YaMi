@@ -58,11 +58,36 @@
     return self;
 }
 
+- (UIScrollView*)getScrollView{
+    return myScrollView;
+}
+
+- (void)setCurrentIndex:(int)index{
+    self->currentIndex = index;
+    [(UIView*)[left subviews][0] removeFromSuperview];
+    [(UIView*)[right subviews][0] removeFromSuperview];
+    [(UIView*)[middle subviews][0] removeFromSuperview];
+    if (currentIndex <=1) {
+        currentIndex = 1;
+        [left addSubview:[viewArray lastObject]];
+        [middle addSubview:viewArray[currentIndex-1]];
+        [right addSubview:viewArray[currentIndex]];
+    }
+    else if(currentIndex >= viewArray.count){
+        currentIndex = (int)viewArray.count;
+        [left addSubview:viewArray[currentIndex-2]];
+        [middle addSubview:viewArray[currentIndex-1]];
+        [right addSubview:viewArray[0]];
+    }
+    else{
+        [left addSubview:viewArray[currentIndex-2]];
+        [middle addSubview:viewArray[currentIndex-1]];
+        [right addSubview:viewArray[currentIndex]];
+    }
+}
+
 
 //scrollview delegate
--(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-    //NSLog(@"did begin decelerating");
-}
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     //NSLog(@"did end decelerating");
     //finish position
@@ -72,54 +97,21 @@
     //current position
     //make it endless
     if (scrollView.contentOffset.x < (int)(0.5*width)) {
-        NSLog(@"did scroll left%@",NSStringFromCGPoint(scrollView.contentOffset));
-        NSLog(@"current index is%i",currentIndex);
-        currentIndex--;
-        if (currentIndex==0) {
-            
-            currentIndex = (int)viewArray.count-1;
-            left = [viewArray lastObject];
+        if (currentIndex==1) {
+            [self setCurrentIndex:(int)viewArray.count];
         }
         else{
-            left = viewArray[currentIndex-2];
+            [self setCurrentIndex:currentIndex-1];
         }
-        if (currentIndex==(int)viewArray.count) {
-            right = viewArray[0];
-        }
-        else{
-            right = viewArray[currentIndex];
-        }
-        middle = viewArray[currentIndex-1];
         scrollView.contentOffset = CGPointMake((int)(1.5*width), 0);
     }
     else if(scrollView.contentOffset.x > (int)(1.5*width)){
-        //NSLog(@"did scroll right%@",NSStringFromCGPoint(scrollView.contentOffset));
-        currentIndex++;
-        NSLog(@"current index is%i",currentIndex);
-        if (currentIndex==viewArray.count+1) {
-            currentIndex = 1;
-            [(UIView*)[left subviews][0] removeFromSuperview];
-            [left addSubview:[viewArray lastObject]];
+        if (currentIndex==viewArray.count) {
+            [self setCurrentIndex:1];
         }
         else{
-            [(UIView*)[left subviews][0] removeFromSuperview];
-            [left addSubview:viewArray[currentIndex-2]];
-            NSLog(@"left");
+            [self setCurrentIndex:currentIndex+1];
         }
-        if (currentIndex==(int)viewArray.count) {
-            [(UIView*)[right subviews][0] removeFromSuperview];
-            [right addSubview:viewArray[0]];
-            NSLog(@"right");
-        }
-        else{
-            [(UIView*)[right subviews][0] removeFromSuperview];
-            [right addSubview:viewArray[currentIndex]];
-            NSLog(@"right");
-        }
-        NSLog(@"%i",currentIndex);
-        [(UIView*)[middle subviews][0] removeFromSuperview];
-        [middle addSubview:viewArray[currentIndex-1]];
-        NSLog(@"finish");
         scrollView.contentOffset = CGPointMake((int)(0.5*width), 0);
     }
 }
