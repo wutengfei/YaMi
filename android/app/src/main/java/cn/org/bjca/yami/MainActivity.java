@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager pager;
 
 
-    private ArrayList<Integer> data = new ArrayList<>();
+    private ArrayList<Integer> data = new ArrayList<>();//存放图片地址
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,11 +36,6 @@ public class MainActivity extends AppCompatActivity {
         data.add(R.mipmap.ic_cover_1);
         data.add(R.mipmap.ic_cover_2);
         data.add(R.mipmap.ic_cover_3);
-        data.add(R.mipmap.ic_cover_4);
-        data.add(R.mipmap.ic_cover_5);
-        data.add(R.mipmap.ic_cover_6);
-        data.add(R.mipmap.ic_cover_7);
-        data.add(R.mipmap.ic_cover_8);
         PagerContainer container = (PagerContainer) findViewById(R.id.pager_container);
         pager = container.getViewPager();
 
@@ -102,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             mPager = viewPager;
             viewPager.setAdapter(this);
             viewPager.addOnPageChangeListener(this);
-            viewPager.setCurrentItem(2, false);
+            viewPager.setCurrentItem(1000, false);
         }
 
         protected View getItemView(T data) {

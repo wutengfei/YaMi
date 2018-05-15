@@ -19,8 +19,8 @@
         </activity>
         <activity android:name=".OrderActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".AddMaterialActivity" />
-        <activity android:name=".PredictionActivity"></activity>
+        <activity android:name=".PredictionActivity" />
+        <activity android:name=".SureActivity"></activity>
     </application>
 
 </manifest>

@@ -4,5 +4,10 @@
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
     <dimen name="pager_margin">-30dp</dimen>
-
+    <!--左边文本字体大小-->
+    <dimen name="left_tv_text_size">15sp</dimen>
+    <!--右边文本字体大小-->
+    <dimen name="right_tv_text_size">15sp</dimen>
+    <!--标题字体大小-->
+    <dimen name="title_tv_text_size">20sp</dimen>
 </resources>

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="cn.org.bjca.yami.OrderActivity">
+    android:orientation="vertical">
+
+    <cn.org.bjca.yami.view.CustomToolBar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:contentInsetStart="0dp">
+
+    </cn.org.bjca.yami.view.CustomToolBar>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,20 +22,19 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-           >
+            android:layout_height="match_parent">
 
             <TextView
-                android:layout_marginTop="50dp"
+                android:id="@+id/tv_setMeal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_setMeal"
+                android:layout_marginTop="50dp"
                 android:text="套餐" />
 
             <TextView
+                android:id="@+id/tv_addMaterial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_addMaterial"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -38,7 +45,7 @@
 
         <fragment
             android:id="@+id/fragment_order"
-            android:name="cn.org.bjca.yami.view.SetMealFragment"
+            android:name="cn.org.bjca.yami.view.ContentFragment"
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:layout_alignParentBottom="true"
@@ -46,7 +53,6 @@
             android:layout_alignParentStart="true"
             android:layout_marginBottom="17dp" />
     </LinearLayout>
-
 
     <RelativeLayout
 
@@ -72,10 +78,12 @@
             android:backgroundTint="@color/colorAccent" />
 
         <Button
+            android:id="@+id/sure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            />
+            android:text="确定" />
     </RelativeLayout>
+
 </LinearLayout>

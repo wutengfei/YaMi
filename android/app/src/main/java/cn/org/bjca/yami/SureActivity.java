@@ -7,20 +7,17 @@ import android.widget.TextView;
 
 import cn.org.bjca.yami.view.CustomToolBar;
 
-/**
- * 预告页
- */
-public class PredictionActivity extends AppCompatActivity implements View.OnClickListener {
+public class SureActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prediction);
+        setContentView(R.layout.activity_sure);
         getSupportActionBar().hide();//隐藏标题栏
 
         //标题栏设置
         CustomToolBar toolbar = findViewById(R.id.tool_bar);
-        toolbar.setMainTitle("美味预告");
+        toolbar.setMainTitle("即刻确认");
         toolbar.setMainTitleLeftText("返回");
         toolbar.setMainTitleRightText("");
         TextView back = findViewById(R.id.lt_main_title_left);
@@ -29,6 +26,6 @@ public class PredictionActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        finish();
+       finish();
     }
 }
