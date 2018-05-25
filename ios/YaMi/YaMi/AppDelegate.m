@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "Module.h"
 #import "httpController.h"
+
 @interface AppDelegate (){
     
 }
@@ -26,7 +27,32 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *mainControl = sb.instantiateInitialViewController;
     [navContrl pushViewController:mainControl animated:NO];*/
-    [[[httpController alloc]init] createRequest];
+    [[[httpController alloc]init] getDataFromUrl:@"https://www.baidu.com"];
+    NSMutableArray* add = [[NSMutableArray alloc]init];
+    NSMutableArray* meal = [[NSMutableArray alloc]init];
+    NSMutableArray* restaurant = [[NSMutableArray alloc]init];
+    for (int i = 1; i<6; i++) {
+        NSMutableArray* mealForDay = [[NSMutableArray alloc]init];
+        NSMutableArray* addForDay = [[NSMutableArray alloc]init];
+        NSString* restaurantForDay = [[NSString alloc]initWithFormat:@"星期%i，餐厅",i];
+        for (int j = 0; j<5; j++) {
+            [mealForDay addObject:[NSString stringWithFormat:@"星期%i，套餐%i",i,j]];
+        }
+        for (int j = 0; j<4; j++) {
+            [addForDay addObject:[NSString stringWithFormat:@"星期%i，加料%i",i,j]];
+        }
+        [meal addObject:mealForDay];
+        [add addObject:addForDay];
+        [restaurant addObject:restaurantForDay];
+        
+    }
+    NSMutableDictionary* data = [[NSMutableDictionary alloc]init];
+    [data setValue:meal forKey:@"meal"];
+    [data setValue:add forKey:@"add"];
+    [data setValue:restaurant forKey:@"restaurant"];
+    NSLog(@"%@",data);
+    [Module initWithData:data];
+    NSLog(@"%@",[Module getRestaurantForDay:1]);
     return YES;
 }
 

@@ -7,8 +7,10 @@
 //
 
 #import "orderViewController.h"
+#import "Module.h"
 
 @implementation orderViewController{
+    int date;
     float screenHeight;
     float screenWidth;
     NSString* restrant;
@@ -156,17 +158,45 @@
 */
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    //get current weakdaydate
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    [calendar setFirstWeekday:2];
+    
+    NSDate *now = [NSDate date];
+    
+    NSUInteger count = [calendar ordinalityOfUnit:NSCalendarUnitWeekday
+                                           inUnit:NSCalendarUnitWeekOfMonth
+                                          forDate:now];
+    //NSLog(@"%lu",(unsigned long)count);
+    date = (int)count;
+    
     screenHeight = self.view.frame.size.height;
     screenWidth = self.view.frame.size.width;
     NSLog(@"screenHeight is%f,screehWidth is%f",screenHeight,screenWidth);
     [self.storyboard instantiateViewControllerWithIdentifier:@"orderViewController"];
-    NSLog(@"%@", self.storyboard);
-    restaurantName.text = @"rest";
+    if (!restrant) {
+        restrant = [Module getRestaurantForDay:date];
+    }
+    restaurantName.text = restrant;
     addView.frame = mealView.frame;
     addView.hidden = YES;
     orderButton.selected = YES;
     [addButton addTarget:self action:@selector(showAdd) forControlEvents: UIControlEventTouchUpInside];
     [orderButton addTarget:self action:@selector(showMeal) forControlEvents: UIControlEventTouchUpInside];
+    NSArray* mealButtons = [[NSArray alloc]initWithArray:[mealView subviews]];
+    NSArray* mealTexts = [Module getMealForDay:date];
+    for (int i = 0; i<mealButtons.count; i++) {
+        NSLog(@"%@",mealTexts[i]);
+        [((UIButton*)mealButtons[i]) setTitle:mealTexts[i] forState:UIControlStateNormal];
+    }
+    NSArray* addButtons = [[NSArray alloc]initWithArray:[addView subviews]];
+    NSArray* addTexts = [Module getAddForDay:date];
+    for (int i = 0; i<addButtons.count; i++) {
+        NSLog(@"%@",addTexts[i]);
+        [((UIButton*)addButtons[i]) setTitle:addTexts[i] forState:UIControlStateNormal];
+    }
 }
 - (void)showAdd{
     addView.hidden = NO;
@@ -182,7 +212,8 @@
 }
 - (void)chooseMeal:(int)meal{
     NSLog(@"chooseMeal%d",meal);
-    NSString *str = [NSString stringWithFormat:@"套餐%i",meal];
+    NSString *str = [Module getMealForDay:date][meal-1];
+    [Module setMeal:str];
     if (!choosedMeal) {
         NSLog(@"create meal button");
         randomButton.hidden = YES;
@@ -199,7 +230,8 @@
 }
 - (void)chooseAdd:(int)add{
     NSLog(@"chooseAdd%d",add);
-    NSString *str = [NSString stringWithFormat:@"加料%i",add];
+    NSString *str = [Module getAddForDay:date][add-1];
+    [Module setAdd:str];
     if (!choosedAdd) {
         NSLog(@"create add button");
         //already choosed,change this time
@@ -223,12 +255,14 @@
         [sender removeFromSuperview];
         if (sender==choosedMeal) {
             choosedMeal = nil;
+            [Module setMeal:nil];
             if (!choosedAdd) {
                 randomButton.hidden = NO;
             }
         }
         else if (sender==choosedAdd){
             choosedAdd = nil;
+            [Module setAdd:nil];
             if (!choosedMeal) {
                 randomButton.hidden = NO;
             }
