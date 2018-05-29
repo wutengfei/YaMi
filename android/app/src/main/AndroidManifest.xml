@@ -11,15 +11,19 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
+
+        </activity>
+        <activity android:name=".OrderActivity" />
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OrderActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".PredictionActivity" />
+        <activity android:name=".PredictionActivity"
+            android:theme="@style/Theme.PageIndicatorDefaults"
+            />
         <activity android:name=".SureActivity"></activity>
     </application>
 

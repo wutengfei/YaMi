@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,14 +27,13 @@ public class PredictionActivity extends FragmentActivity implements
      */
     private static final String[] TITLE = new String[]{"周一", "周二", "周三", "周四",
             "周五"};
-    private ViewPager mViewPager;
-    private TabPageIndicator mIndicator;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去除标题栏
         setContentView(R.layout.activity_prediction);
-        // getSupportActionBar().hide();//隐藏标题栏
         initView();
 
     }
@@ -55,11 +55,11 @@ public class PredictionActivity extends FragmentActivity implements
 
         //ViewPager的adapter
         FragmentPagerAdapter adapter = new TabPageIndicatorAdapter(getSupportFragmentManager());
-        ViewPager pager = (ViewPager) findViewById(R.id.vp_menu_detail);
+        ViewPager pager = (ViewPager) findViewById(R.id.pager);
         pager.setAdapter(adapter);
 
         //实例化TabPageIndicator然后设置ViewPager与之关联
-        final TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
+         TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(pager);
 
         //如果我们要对ViewPager设置监听，用indicator设置就行了
