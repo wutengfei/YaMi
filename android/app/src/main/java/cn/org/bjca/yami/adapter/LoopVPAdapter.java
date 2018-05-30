@@ -11,9 +11,9 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2016/8/29.
  */
-public abstract class LoopVPAdapter<T> extends PagerAdapter implements ViewPager.OnPageChangeListener{
+public abstract class LoopVPAdapter<T> extends PagerAdapter implements ViewPager.OnPageChangeListener {
 
-//    当前页面
+    //    当前页面
     private int currentPosition = 0;
 
     protected Context mContext;
@@ -24,19 +24,19 @@ public abstract class LoopVPAdapter<T> extends PagerAdapter implements ViewPager
         mContext = context;
         views = new ArrayList<>();
 //        如果数据大于一条
-        if(datas.size() > 1) {
+        if (datas.size() > 1) {
 //            添加最后一页到第一页
-            datas.add(0,datas.get(datas.size()-1));
+            datas.add(0, datas.get(datas.size() - 1));
 //            添加第一页(经过上行的添加已经是第二页了)到最后一页
             datas.add(datas.get(1));
         }
-        for (T data:datas) {
+        for (T data : datas) {
             views.add(getItemView(data));
         }
         mViewPager = viewPager;
         viewPager.setAdapter(this);
         viewPager.addOnPageChangeListener(this);
-        viewPager.setCurrentItem(1,false);
+        viewPager.setCurrentItem(1, false);
     }
 
     @Override
@@ -73,15 +73,15 @@ public abstract class LoopVPAdapter<T> extends PagerAdapter implements ViewPager
 
     @Override
     public void onPageScrollStateChanged(int state) {
-//        若viewpager滑动未停止，直接返回
+        //若viewpager滑动未停止，直接返回
         if (state != ViewPager.SCROLL_STATE_IDLE) return;
-//        若当前为第一张，设置页面为倒数第二张
+        //若当前为第一张，设置页面为倒数第二张
         if (currentPosition == 0) {
-            mViewPager.setCurrentItem(views.size()-2,false);
+            mViewPager.setCurrentItem(views.size() - 2, false);
 
-        } else if (currentPosition == views.size()-1) {
-//        若当前为倒数第一张，设置页面为第二张
-            mViewPager.setCurrentItem(1,false);
+        } else if (currentPosition == views.size() - 1) {
+            //若当前为倒数第一张，设置页面为第二张
+            mViewPager.setCurrentItem(1, false);
         }
 
     }

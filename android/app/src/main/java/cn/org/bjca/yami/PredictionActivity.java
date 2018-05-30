@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,12 @@ public class PredictionActivity extends FragmentActivity implements
      */
     private static final String[] TITLE = new String[]{"周一", "周二", "周三", "周四",
             "周五"};
+    private static final String[] FOOD = new String[]{
+            "赵老师，套餐一，套餐二，套餐三，套餐四，套餐五，加料一，加料二，加料三，加料四",
+            "钱老师，套餐一，套餐二，套餐三，套餐四，套餐五，加料一，加料二，加料三，加料四",
+            "孙老师，套餐一，套餐二，套餐三，套餐四，套餐五，加料一，加料二，加料三，加料四",
+            "李老师，套餐一，套餐二，套餐三，套餐四，套餐五，加料一，加料二，加料三，加料四",
+            "吴老师，套餐一，套餐二，套餐三，套餐四，套餐五，加料一，加料二，加料三，加料四"};
 
 
     @Override
@@ -59,7 +66,7 @@ public class PredictionActivity extends FragmentActivity implements
         pager.setAdapter(adapter);
 
         //实例化TabPageIndicator然后设置ViewPager与之关联
-         TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
+        TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(pager);
 
         //如果我们要对ViewPager设置监听，用indicator设置就行了
@@ -67,7 +74,6 @@ public class PredictionActivity extends FragmentActivity implements
 
             @Override
             public void onPageSelected(int arg0) {
-                Toast.makeText(getApplicationContext(), TITLE[arg0], Toast.LENGTH_SHORT).show();
                 // indicator.setCurrentItem(arg0);
             }
 
@@ -100,6 +106,7 @@ public class PredictionActivity extends FragmentActivity implements
             Fragment fragment = new ItemFragment();
             Bundle args = new Bundle();
             args.putString("arg", TITLE[position]);
+            args.putString("food",FOOD[position]);
             fragment.setArguments(args);
 
             return fragment;
@@ -113,6 +120,21 @@ public class PredictionActivity extends FragmentActivity implements
         @Override
         public int getCount() {
             return TITLE.length;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            return super.instantiateItem(container, position);
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            super.destroyItem(container, position, object);
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return super.isViewFromObject(view, object);
         }
     }
 

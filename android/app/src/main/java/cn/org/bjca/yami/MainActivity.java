@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        data.add(R.mipmap.ic_cover_1);
-        data.add(R.mipmap.ic_cover_2);
-        data.add(R.mipmap.ic_cover_3);
+        data.add(R.drawable.left);
+        data.add(R.drawable.center);
+        data.add(R.drawable.right);
         PagerContainer container = (PagerContainer) findViewById(R.id.pager_container);
         pager = container.getViewPager();
 

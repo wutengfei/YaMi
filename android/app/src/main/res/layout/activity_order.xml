@@ -17,7 +17,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -28,8 +28,13 @@
                 android:id="@+id/tv_setMeal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:layout_marginTop="50dp"
-                android:text="套餐" />
+                android:text="套餐"
+                android:textColor="#8B2500"
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/tv_addMaterial"
@@ -39,51 +44,40 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginBottom="144dp"
-                android:text="加料" />
+                android:text="加料"
+                android:textColor="#8B2500"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="12dp"
+                android:ems="1"
+                android:text="已点"
+                android:textColor="#8B2500"
+                android:textSize="30dp" />
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#6495ED">
+
+        </LinearLayout>
 
         <fragment
             android:id="@+id/fragment_order"
             android:name="cn.org.bjca.yami.view.ContentFragment"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_alignParentBottom="true"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/textView"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="17dp" />
+            android:layout_alignParentStart="true" />
     </LinearLayout>
 
-    <RelativeLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/fragment_order">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="已点"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:backgroundTint="@color/colorAccent" />
-
-        <Button
-            android:id="@+id/sure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:text="确定" />
-    </RelativeLayout>
 
 </LinearLayout>

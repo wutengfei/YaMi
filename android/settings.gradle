@@ -1,1 +1,1 @@
-include ':app', ':coverflow',':viewPagerIndicatorLibrary'
+include ':app', ':coverflow'

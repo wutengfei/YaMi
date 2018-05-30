@@ -42,16 +42,16 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         setDefaultFragment(); // 设置默认的Fragment
         TextView setMeal = findViewById(R.id.tv_setMeal);
         TextView addMaterial = findViewById(R.id.tv_addMaterial);
-        Button sure=findViewById(R.id.sure);
+       // Button sure=findViewById(R.id.sure);
         setMeal.setOnClickListener(this);
         addMaterial.setOnClickListener(this);
-        sure.setOnClickListener(this);
+     //   sure.setOnClickListener(this);
     }
 
     private void setDefaultFragment() {
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.fragment_order, new SetMealFragment());
+        transaction.replace(R.id.fragment_order, new SetMealFragment(this));
         transaction.commit();
     }
 
@@ -64,7 +64,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
                 // 开启Fragment事务
                 FragmentTransaction transaction = fm.beginTransaction();
                 if (setMealFragment == null) {
-                    setMealFragment = new SetMealFragment();
+                    setMealFragment = new SetMealFragment(this);
                 }
                 transaction.replace(R.id.fragment_order, setMealFragment);
                 transaction.commit();
@@ -74,7 +74,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
                 FragmentTransaction transaction2 = fm.beginTransaction();
 
                 if (addMaterialFragment == null) {//加料
-                    addMaterialFragment = new AddMaterialFragment();
+                    addMaterialFragment = new AddMaterialFragment(this);
                 }
                 transaction2.replace(R.id.fragment_order, addMaterialFragment);
                 transaction2.commit();
@@ -85,9 +85,9 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
             case R.id.lt_main_title_right://预告
                 startActivity(new Intent(this, PredictionActivity.class));
                 break;
-            case R.id.sure://预告
-                startActivity(new Intent(this, SureActivity.class));
-                break;
+         //   case R.id.sure://预告
+            //    startActivity(new Intent(this, SureActivity.class));
+            //    break;
         }
 
     }
