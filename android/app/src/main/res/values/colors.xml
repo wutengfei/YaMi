@@ -9,4 +9,7 @@
     <color name="bg_top_btn_pressed">#969696</color>
 
     <color name="vpi__background_holo_light">#F0408f</color>
+
+    <color name="chose">#8B7355</color>
+    <color name="normal">#8B2500</color>
 </resources>

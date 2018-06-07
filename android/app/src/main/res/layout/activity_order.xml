@@ -25,7 +25,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_setMeal"
+                android:id="@+id/tv_setMeal_yes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -37,7 +37,7 @@
                 android:textSize="30dp" />
 
             <TextView
-                android:id="@+id/tv_addMaterial"
+                android:id="@+id/tv_addMaterial_yes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
