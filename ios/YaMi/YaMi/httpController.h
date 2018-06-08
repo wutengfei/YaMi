@@ -11,5 +11,6 @@
 @interface httpController : NSObject{
     NSMutableData* receiveData;
 }
-- (void)createRequest;
+- (void)getDataFromUrl:(NSString*)url;
+- (void)postDataToUrl:(NSString*)url withData:(NSData*)data;
 @end
