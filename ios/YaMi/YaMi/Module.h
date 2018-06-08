@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Module : NSObject
-
+@interface Module : NSObject{
+}
++ (void)initWithData:(NSDictionary*)data;
++ (NSArray*)getMealForDay:(int)day;
++ (NSArray*)getAddForDay:(int)day;
++ (NSString*)getRestaurantForDay:(int)day;
++ (void)setMeal:(NSString*)selectedMeal;
++ (void)setAdd:(NSString*)selectedAdd;
++ (NSString*)getMeal;
++ (NSString*)getAdd;
 @end

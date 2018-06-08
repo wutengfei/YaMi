@@ -7,6 +7,7 @@
 //
 
 #import "previewViewController.h"
+#import "Module.h"
 
 @interface previewViewController (){
     float sWidth;
@@ -42,10 +43,26 @@
         [tempButtonArray addObject:newButton];
         [dateView addSubview:newButton];
         rect.origin.x += sWidth*0.25;
-        UILabel* newView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, sWidth, 530)];
+        UIView* newView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sWidth, 530)];
         newView.backgroundColor = [UIColor whiteColor];
-        //[newView addSubview:newButton];
-        [newView setText:[NSString stringWithFormat:@"星期%i",i+1]];
+        CGRect menuRect = CGRectMake(0, 0, sWidth, 45);
+        UILabel* restaurantLabel = [[UILabel alloc]initWithFrame:menuRect];
+        restaurantLabel.text = [Module getRestaurantForDay:i+1];
+        [newView addSubview:restaurantLabel];
+        NSArray* meals = [[NSArray alloc]initWithArray:[Module getMealForDay:i+1]];
+        for(NSString* meal in meals){
+            menuRect.origin.y+=menuRect.size.height;
+            UILabel* mealLabel = [[UILabel alloc]initWithFrame:menuRect];
+            mealLabel.text = meal;
+            [newView addSubview:mealLabel];
+        }
+        for(NSString* add in [Module getAddForDay:i+1]){
+            menuRect.origin.y+=menuRect.size.height;
+            UILabel* addLabel = [[UILabel alloc]initWithFrame:menuRect];
+            addLabel.text = add;
+            [newView addSubview:addLabel];
+        }
+        //[newView setText:[NSString stringWithFormat:@"星期%i",i+1]];
         [tempInfoArray addObject:newView];
     }
     buttonArray = tempInfoArray;
@@ -65,6 +82,9 @@
     [_infoView addSubview:infoBanner];
     //[buttonBanner getScrollView].scrollEnabled = false;
     dateView.contentSize = CGSizeMake(2.5*sWidth, navHeight);
+    float offset = 0.125*sWidth;
+    [infoBanner setCurrentIndex:3];
+    dateView.contentOffset = CGPointMake(offset, 0);
     [_navView addSubview:dateView];
     //kvo add observer
     NSLog(@"currentIndex for infoBanner is%@",[infoBanner valueForKey:@"currentIndex"]);
