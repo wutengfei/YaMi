@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.viewpagerindicator.TabPageIndicator;
 
 
+import cn.org.bjca.yami.R;
 import cn.org.bjca.yami.view.CustomToolBar;
 import cn.org.bjca.yami.view.ItemFragment;
 

@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Random;
+
 import cn.org.bjca.yami.OrderActivity;
 import cn.org.bjca.yami.R;
 import cn.org.bjca.yami.SureActivity;
@@ -32,7 +34,7 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
     private TextView addMaterial_yes;//已点加料
     private View sure;//确定
     private String[] setMeals = new String[5];
-
+    private String[] addMaterials = new String[4];
     public SetMealFragment() {
     }
 
@@ -44,6 +46,10 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
         setMeals[2] = "套餐三";
         setMeals[3] = "套餐四";
         setMeals[4] = "套餐五";
+        addMaterials[0] = "加料一";
+        addMaterials[1] = "加料二";
+        addMaterials[2] = "加料三";
+        addMaterials[3] = "加料四";
     }
 
 
@@ -89,15 +95,15 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
             }
             if (OrderActivity.STATUS_SETMEAL == 3) {
                 setMeal_yes.setText(setMeals[2]);
-                setMeal2.setBackgroundColor((getResources().getColor(R.color.chose)));
+                setMeal3.setBackgroundColor((getResources().getColor(R.color.chose)));
             }
             if (OrderActivity.STATUS_SETMEAL == 4) {
                 setMeal_yes.setText(setMeals[3]);
-                setMeal2.setBackgroundColor((getResources().getColor(R.color.chose)));
+                setMeal4.setBackgroundColor((getResources().getColor(R.color.chose)));
             }
             if (OrderActivity.STATUS_SETMEAL == 5) {
                 setMeal_yes.setText(setMeals[4]);
-                setMeal2.setBackgroundColor((getResources().getColor(R.color.chose)));
+                setMeal5.setBackgroundColor((getResources().getColor(R.color.chose)));
             }
         }
         if (OrderActivity.STATUS_ADDMATERIAL != 0) {
@@ -182,8 +188,55 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.btn_sure://确定
-                startActivity(new Intent(mContext, SureActivity.class));
+                Intent intent = new Intent(mContext, SureActivity.class);
+                intent.putExtra("setMeal", OrderActivity.STATUS_SETMEAL);
+                intent.putExtra("addMaterial", OrderActivity.STATUS_ADDMATERIAL);
+                startActivity(intent);
                 break;
+            case R.id.btn_select://捣蛋一下
+                Random r = new Random();
+                int a = r.nextInt(5) + 1;//产生1-5的随机数。nextInt(5)是产生0-4的随机数
+                int b = r.nextInt(4) + 1;//产生1-4的随机数。
+                OrderActivity.STATUS_SETMEAL = a;
+                OrderActivity.STATUS_ADDMATERIAL = b;
+
+                select.setVisibility(View.INVISIBLE);//捣蛋一下隐藏
+
+                if (OrderActivity.STATUS_SETMEAL == 1) {//随机选中一个套餐
+                    setMeal1.setBackgroundColor((getResources().getColor(R.color.chose)));
+                    setMeal_yes.setVisibility(View.VISIBLE);
+                    setMeal_yes.setText(setMeals[0]);
+                } else if (OrderActivity.STATUS_SETMEAL == 2) {
+                    setMeal2.setBackgroundColor((getResources().getColor(R.color.chose)));
+                    setMeal_yes.setVisibility(View.VISIBLE);
+                    setMeal_yes.setText(setMeals[1]);
+                } else if (OrderActivity.STATUS_SETMEAL == 3) {
+                    setMeal3.setBackgroundColor((getResources().getColor(R.color.chose)));
+                    setMeal_yes.setVisibility(View.VISIBLE);
+                    setMeal_yes.setText(setMeals[2]);
+                } else if (OrderActivity.STATUS_SETMEAL == 4) {
+                    setMeal4.setBackgroundColor((getResources().getColor(R.color.chose)));
+                    setMeal_yes.setVisibility(View.VISIBLE);
+                    setMeal_yes.setText(setMeals[3]);
+                } else if (OrderActivity.STATUS_SETMEAL == 5) {
+                    setMeal5.setBackgroundColor((getResources().getColor(R.color.chose)));
+                    setMeal_yes.setVisibility(View.VISIBLE);
+                    setMeal_yes.setText(setMeals[4]);
+                }
+
+                if (OrderActivity.STATUS_ADDMATERIAL == 1) {//随机选中一个加料
+                    addMaterial_yes.setVisibility(View.VISIBLE);
+                    addMaterial_yes.setText( addMaterials[0]);
+                } else if (OrderActivity.STATUS_ADDMATERIAL == 2) {
+                    addMaterial_yes.setVisibility(View.VISIBLE);
+                    addMaterial_yes.setText( addMaterials[1]);
+                } else if (OrderActivity.STATUS_ADDMATERIAL == 3) {
+                    addMaterial_yes.setVisibility(View.VISIBLE);
+                    addMaterial_yes.setText( addMaterials[2]);
+                } else if (OrderActivity.STATUS_ADDMATERIAL == 4) {
+                    addMaterial_yes.setVisibility(View.VISIBLE);
+                    addMaterial_yes.setText( addMaterials[3]);
+                }
         }
     }
 }

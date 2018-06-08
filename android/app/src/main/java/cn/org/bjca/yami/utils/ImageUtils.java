@@ -14,7 +14,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 public class ImageUtils {
 
     /**
-     * 加载图片
+     * 加载网络图片
      */
     public static void loadImage(Context context, String url, final ImageView imageView) {
         if (imageView == null) return;

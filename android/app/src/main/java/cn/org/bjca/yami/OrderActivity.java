@@ -1,6 +1,5 @@
 package cn.org.bjca.yami;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -20,8 +19,8 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
     private SetMealFragment setMealFragment;
     private AddMaterialFragment addMaterialFragment;
     CustomToolBar toolbar;
-    public static int STATUS_SETMEAL = 0;
-    public static int STATUS_ADDMATERIAL = 0;
+    public static int STATUS_SETMEAL = 0;//0:未选择，1:套餐一，5：套餐五
+    public static int STATUS_ADDMATERIAL = 0;//0：未选择，1：加料1,4：加料4
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
