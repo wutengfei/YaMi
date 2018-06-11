@@ -5,7 +5,7 @@
     android:id="@+id/fragment_setMeal"
     tools:context="cn.org.bjca.yami.view.SetMealFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
 
     <cn.org.bjca.yami.view.DragFrameLayout
         android:id="@+id/df_setMeal"

@@ -52,7 +52,7 @@ public class LinkageCoverTransformer implements LinkagePager.PageTransformer {
             page.setTranslationX(realPagerMargin);
         }
 
-        //TODO
+
         //rotate status
         if(rotationY!=0){
             float realRotationY = Math.abs(position * rotationY);

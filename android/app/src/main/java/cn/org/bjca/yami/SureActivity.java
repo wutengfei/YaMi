@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,11 +13,18 @@ import cn.org.bjca.yami.view.CustomToolBar;
 
 public class SureActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private EditText name;//姓名
+    private EditText cipher;//部门口令
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sure);
         getSupportActionBar().hide();//隐藏标题栏
+
+
+        name = findViewById(R.id.et_name);
+        cipher = findViewById(R.id.et_cipher);
 
         //标题栏设置
         CustomToolBar toolbar = findViewById(R.id.tool_bar);
@@ -31,7 +39,7 @@ public class SureActivity extends AppCompatActivity implements View.OnClickListe
         TextView setMealName = findViewById(R.id.tv_setMealName);
         TextView addMaterialName = findViewById(R.id.tv_addMaterialName);
 
-     //得到套餐和加料的选择信息
+        //得到套餐和加料的选择信息
         Intent intent = getIntent();
         int setMeal = intent.getIntExtra("setMeal", 0);
         int addMaterial = intent.getIntExtra("addMaterial", 0);
@@ -40,20 +48,20 @@ public class SureActivity extends AppCompatActivity implements View.OnClickListe
             setMealName.setText("套餐1");
         } else if (setMeal == 2) {
             setMealName.setText("套餐2");
-        }else if (setMeal == 3) {
+        } else if (setMeal == 3) {
             setMealName.setText("套餐3");
-        }else if (setMeal == 4) {
+        } else if (setMeal == 4) {
             setMealName.setText("套餐4");
-        }else if (setMeal == 5) {
+        } else if (setMeal == 5) {
             setMealName.setText("套餐5");
         }
         if (addMaterial == 1) {
             addMaterialName.setText("加料1");
         } else if (addMaterial == 2) {
             addMaterialName.setText("加料2");
-        }else if (addMaterial == 3) {
+        } else if (addMaterial == 3) {
             addMaterialName.setText("加料3");
-        }else if (addMaterial == 4) {
+        } else if (addMaterial == 4) {
             addMaterialName.setText("加料4");
         }
     }
@@ -67,6 +75,10 @@ public class SureActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_finish:
                 //TODO 网络交互
 
+
+
+                String username = name.getText().toString().trim();
+                String user_cipher = cipher.getText().toString().trim();
 
                 OrderActivity.STATUS_ADDMATERIAL = 0;
                 OrderActivity.STATUS_SETMEAL = 0;

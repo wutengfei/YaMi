@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         pager.setClipChildren(true);
         pager.setOffscreenPageLimit(15);
         pager.addOnPageChangeListener(this);
-        pager.setCurrentItem(1);
+        pager.setCurrentItem(2);
 
         boolean showTransformer = true;//true显示缩放效果，false不显示
         if (showTransformer) {
@@ -70,24 +70,24 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @Override
     public void onPageScrollStateChanged(int state) {
-//        //若viewpager滑动未停止，直接返回
-//        if (state != ViewPager.SCROLL_STATE_IDLE) return;
-//        //若当前为第一张，设置页面为倒数第二张
-//        if (currentPosition == 0) {
-//            pager.setCurrentItem(data.size() - 2, false);
-//        } else if (currentPosition == data.size() - 1) {
-//            // 若当前为倒数第一张，设置页面为第二张
-//            pager.setCurrentItem(1, false);
-//        }
+        //若viewpager滑动未停止，直接返回
+        if (state != ViewPager.SCROLL_STATE_IDLE) return;
+        //若当前为第一张，设置页面为倒数第二张
+        if (currentPosition == 0) {
+            pager.setCurrentItem(data.size() - 2, false);
+        } else if (currentPosition == data.size() - 1) {
+            // 若当前为倒数第一张，设置页面为第二张
+            pager.setCurrentItem(1, false);
+        }
 
     }
 
     public void enter(View view) {
-        if (currentPosition == 1) {//定餐模块
-            startActivity(new Intent(this, OrderActivity.class));
-        } else if (currentPosition == 2) {//管理模块
+        if (currentPosition == 1) {//管理模块
             startActivity(new Intent(this, ManageActivity.class));
-        } else if (currentPosition == 0) {//交互模块
+        } else if (currentPosition == 2) {//定餐模块
+            startActivity(new Intent(this, OrderActivity.class));
+        } else if (currentPosition == 3) {//交互模块
             startActivity(new Intent(this, InteractionActivity.class));
         }
     }
