@@ -43,14 +43,12 @@ public class PredictionActivity extends FragmentActivity implements
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去除标题栏
         setContentView(R.layout.activity_prediction);
         initView();
-
     }
 
     @Override
     public void onClick(View view) {
         finish();
     }
-
 
     private void initView() {
         //标题栏设置
