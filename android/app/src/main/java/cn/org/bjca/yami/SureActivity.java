@@ -3,12 +3,24 @@ package cn.org.bjca.yami;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cn.org.bjca.yami.utils.GlobalPara;
 import cn.org.bjca.yami.view.CustomToolBar;
 
 public class SureActivity extends AppCompatActivity implements View.OnClickListener {
@@ -20,6 +32,7 @@ public class SureActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sure);
+        SysApplication.getInstance().addActivity(this);
         getSupportActionBar().hide();//隐藏标题栏
 
 
@@ -74,18 +87,50 @@ public class SureActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_finish:
                 //TODO 网络交互
-
-
-
-                String username = name.getText().toString().trim();
-                String user_cipher = cipher.getText().toString().trim();
-
-                OrderActivity.STATUS_ADDMATERIAL = 0;
-                OrderActivity.STATUS_SETMEAL = 0;
-                Toast.makeText(this, "订餐成功", Toast.LENGTH_SHORT).show();
-                finish();
+                finished();
                 break;
+
         }
 
     }
+
+    private void finished() {
+        //获取姓名和暗号
+        String username = name.getText().toString().trim();
+        String userCipher = cipher.getText().toString().trim();
+
+        if (TextUtils.isEmpty(username) || TextUtils.isEmpty(userCipher))
+            Toast.makeText(this, "请输入完整姓名和暗号", Toast.LENGTH_SHORT).show();
+        else {
+            HttpUtils utils = new HttpUtils();
+            JSONObject sureJson = new JSONObject();
+            try {
+                sureJson.put("username", username);
+                sureJson.put("userCipher", userCipher);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            RequestParams params = new RequestParams();
+            params.addBodyParameter("sure_json", sureJson.toString());
+            utils.send(HttpRequest.HttpMethod.POST, GlobalPara.SURE_URL, params,
+                    new RequestCallBack<String>() {
+                        @Override
+                        public void onSuccess(ResponseInfo<String> responseInfo) {
+                            OrderActivity.STATUS_ADDMATERIAL = 0;//清零点餐信息
+                            OrderActivity.STATUS_SETMEAL = 0;
+                            Toast.makeText(SureActivity.this, "订餐成功", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(HttpException error, String msg) {
+                            error.printStackTrace();
+                            Toast.makeText(SureActivity.this, "订餐失败，网络错误", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+        }
+    }
+
 }

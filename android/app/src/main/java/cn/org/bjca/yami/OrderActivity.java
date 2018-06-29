@@ -26,6 +26,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
+        SysApplication.getInstance().addActivity(this);
         getSupportActionBar().hide();//隐藏标题栏
 
         //标题栏设置

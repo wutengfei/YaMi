@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,11 +25,13 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private int currentPosition = 0;//当前页面
 
     private ArrayList<Integer> data = new ArrayList<>();//存放图片地址
+    private long exitTime = 0;//用于退出应用时计算两次点击back键的时间差
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SysApplication.getInstance().addActivity(this);
         getSupportActionBar().hide();//隐藏标题栏
         //添加图片
         data.add(R.drawable.left);
@@ -92,4 +96,23 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         }
     }
 
+    //监听返回键退出事件
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+
+    }
+
+    private void exit() {//两次双击退出应用
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(getApplicationContext(), "再按一次退出程序",
+                    Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            SysApplication.getInstance().exit();
+        }
+    }
 }

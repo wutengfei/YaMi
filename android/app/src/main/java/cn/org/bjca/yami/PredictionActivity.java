@@ -43,6 +43,7 @@ public class PredictionActivity extends FragmentActivity implements
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去除标题栏
         setContentView(R.layout.activity_prediction);
+        SysApplication.getInstance().addActivity(this);
         initView();
         getDataFromServer();//解析服务端传来的数据
     }

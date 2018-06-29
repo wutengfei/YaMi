@@ -20,6 +20,7 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        SysApplication.getInstance().addActivity(this);
         relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout_splash);
         imageView = (ImageView) findViewById(R.id.iv_splash);
        // startAnim();//动画包含渐变，旋转，缩放
