@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import cn.org.bjca.yami.R;
+import cn.org.bjca.yami.bean.PredictionData;
 
 
 public class ItemFragment extends Fragment {
@@ -30,21 +31,18 @@ public class ItemFragment extends Fragment {
 
         //获取Activity传递过来的参数
         Bundle mBundle = getArguments();
-        String foods = mBundle.getString("food");
-
-        if (foods != null) {
-            String[] food = foods.split("，");
-            mTitle.setText(food[0]);
-            setMeal1.setText(food[1]);
-            setMeal2.setText(food[2]);
-            setMeal3.setText(food[3]);
-            setMeal4.setText(food[4]);
-            setMeal5.setText(food[5]);
-            addMaterial1.setText(food[6]);
-            addMaterial2.setText(food[7]);
-            addMaterial3.setText(food[8]);
-            addMaterial4.setText(food[9]);
-
+        PredictionData.Food foods = (PredictionData.Food) mBundle.getSerializable("food");
+        if (foods != null) {//填充数据
+            mTitle.setText(foods.getPeopleName());
+            setMeal1.setText(foods.getSetMeal1());
+            setMeal2.setText(foods.getSetMeal2());
+            setMeal3.setText(foods.getSetMeal3());
+            setMeal4.setText(foods.getSetMeal4());
+            setMeal5.setText(foods.getSetMeal5());
+            addMaterial1.setText(foods.getAddMaterial1());
+            addMaterial2.setText(foods.getAddMaterial2());
+            addMaterial3.setText(foods.getAddMaterial3());
+            addMaterial4.setText(foods.getAddMaterial4());
         }
         return contextView;
     }

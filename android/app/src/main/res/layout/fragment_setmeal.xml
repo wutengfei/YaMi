@@ -6,7 +6,6 @@
     tools:context="cn.org.bjca.yami.view.SetMealFragment">
 
 
-
     <cn.org.bjca.yami.view.DragFrameLayout
         android:id="@+id/df_setMeal"
         android:layout_width="match_parent"

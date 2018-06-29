@@ -15,7 +15,7 @@
     <style name="Theme.PageIndicatorDefaults" parent="AppTheme">
         <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
         <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
-
+        <item name="vpiTitlePageIndicatorStyle">@style/CustomTitlePageIndicator</item>
 
     </style>
 
@@ -34,6 +34,18 @@
         <item name="android:textSize">15sp</item>
         <item name="android:maxLines">1</item>
     </style>
+
+    <style name="CustomTitlePageIndicator">
+        <item name="android:background">#FFFFFFFF</item>
+        <item name="footerColor">#FFAA2222</item>
+        <item name="footerLineHeight">1dp</item>
+        <item name="footerIndicatorHeight">3dp</item>
+        <item name="footerIndicatorStyle">underline</item>
+        <item name="android:textColor">#AA000000</item>
+        <item name="selectedColor">#FF000000</item>
+        <item name="selectedBold">true</item>
+    </style>
+
     <style name="TextAppearance.TabPageIndicator" parent="Widget">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@drawable/vpi__dark_theme</item>
