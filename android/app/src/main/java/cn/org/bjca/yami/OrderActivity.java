@@ -19,8 +19,8 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
     private SetMealFragment setMealFragment;
     private AddMaterialFragment addMaterialFragment;
     CustomToolBar toolbar;
-    public static int STATUS_SETMEAL = 0;//0:未选择，1:套餐一，5：套餐五
-    public static int STATUS_ADDMATERIAL = 0;//0：未选择，1：加料1,4：加料4
+    public static int STATUS_SETMEAL = 0;//0:未选择，1-5:套餐1-5
+    public static int STATUS_ADDMATERIAL = 0;//0：未选择，1-5：加料1-4
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +40,12 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         back.setOnClickListener(this);
 
         setDefaultFragment(); // 设置默认的Fragment
-        TextView setMeal = findViewById(R.id.tv_setMeal_yes);
-        TextView addMaterial = findViewById(R.id.tv_addMaterial_yes);
-        // Button sure=findViewById(R.id.sure);
+        TextView setMeal = findViewById(R.id.tv_setMeal);
+        TextView addMaterial = findViewById(R.id.tv_addMaterial);
+
         setMeal.setOnClickListener(this);
         addMaterial.setOnClickListener(this);
-        //   sure.setOnClickListener(this);
+
     }
 
     private void setDefaultFragment() {
@@ -60,7 +60,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         FragmentManager fm = getFragmentManager();
         switch (v.getId()) {
-            case R.id.tv_setMeal_yes://套餐
+            case R.id.tv_setMeal://套餐
                 // 开启Fragment事务
                 FragmentTransaction transaction = fm.beginTransaction();
                 if (setMealFragment == null) {
@@ -70,7 +70,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
                 transaction.replace(R.id.fragment_order, setMealFragment);
                 transaction.commit();
                 break;
-            case R.id.tv_addMaterial_yes://加料
+            case R.id.tv_addMaterial://加料
                 // 开启Fragment事务
                 FragmentTransaction transaction2 = fm.beginTransaction();
 
@@ -80,8 +80,6 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
 
                 transaction2.replace(R.id.fragment_order, addMaterialFragment);
                 transaction2.commit();
-
-
 
                 break;
             case R.id.lt_main_title_left://返回

@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -18,15 +18,17 @@ import cn.org.bjca.yami.OrderActivity;
 import cn.org.bjca.yami.R;
 import cn.org.bjca.yami.SureActivity;
 
+import static cn.org.bjca.yami.OrderActivity.STATUS_ADDMATERIAL;
+import static cn.org.bjca.yami.OrderActivity.STATUS_SETMEAL;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AddMaterialFragment extends Fragment implements View.OnClickListener {
 
-    DragFrameLayout m_dragFrameLayout;
     Context mContext;
-    private TextView setMeal_yes;
-    private TextView addMaterial_yes;
+    private DragView setMeal_yes;//已点套餐
+    private DragView addMaterial_yes;//已点加料
     private View addMaterial1;
     private View addMaterial2;
     private View addMaterial3;
@@ -37,7 +39,6 @@ public class AddMaterialFragment extends Fragment implements View.OnClickListene
     private String[] addMaterials = new String[4];
 
     public AddMaterialFragment() {
-        // Required empty public constructor
     }
 
     @SuppressLint("ValidFragment")
@@ -59,22 +60,16 @@ public class AddMaterialFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_material, container, false);
 
-        m_dragFrameLayout = (DragFrameLayout) view.findViewById(R.id.df_addMaterial);
-        setMeal_yes = view.findViewById(R.id.tv_setMeal_yes);
-        addMaterial_yes = view.findViewById(R.id.tv_addMaterial_yes);
+        setMeal_yes = view.findViewById(R.id.tv_setMeal_yes2);
+        addMaterial_yes = view.findViewById(R.id.tv_addMaterial_yes2);
         select = view.findViewById(R.id.btn_select);
         addMaterial1 = view.findViewById(R.id.tv_addMaterial1);
         addMaterial2 = view.findViewById(R.id.tv_addMaterial2);
         addMaterial3 = view.findViewById(R.id.tv_addMaterial3);
         addMaterial4 = view.findViewById(R.id.tv_addMaterial4);
         sure = view.findViewById(R.id.btn_sure);
-
-        //设置悬浮
-        m_dragFrameLayout.addDragChildView(setMeal_yes);
-        m_dragFrameLayout.addDragChildView(addMaterial_yes);
 
         sure.setOnClickListener(this);
         select.setOnClickListener(this);
@@ -172,10 +167,16 @@ public class AddMaterialFragment extends Fragment implements View.OnClickListene
                 break;
 
             case R.id.btn_sure://确定
-                Intent intent = new Intent(mContext, SureActivity.class);
-                intent.putExtra("setMeal", OrderActivity.STATUS_SETMEAL);
-                intent.putExtra("addMaterial", OrderActivity.STATUS_ADDMATERIAL);
-                startActivity(intent);
+                if (STATUS_SETMEAL == 0 && STATUS_ADDMATERIAL == 0)
+                    Toast.makeText(mContext, "请至少选择一个套餐", Toast.LENGTH_SHORT).show();
+                else if (STATUS_SETMEAL == 0)
+                    Toast.makeText(mContext, "您还未选择套餐", Toast.LENGTH_SHORT).show();
+                else {
+                    Intent intent = new Intent(mContext, SureActivity.class);
+                    intent.putExtra("setMeal", STATUS_SETMEAL);
+                    intent.putExtra("addMaterial", OrderActivity.STATUS_ADDMATERIAL);
+                    startActivity(intent);
+                }
                 break;
             case R.id.btn_select://捣蛋一下
                 Random r = new Random();

@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -17,12 +19,18 @@ import cn.org.bjca.yami.OrderActivity;
 import cn.org.bjca.yami.R;
 import cn.org.bjca.yami.SureActivity;
 
+import static cn.org.bjca.yami.OrderActivity.STATUS_ADDMATERIAL;
+import static cn.org.bjca.yami.OrderActivity.STATUS_SETMEAL;
+
 /**
  * 套餐Fragment
+ * <p>
+ * <p>
+ * 在Fragment和DragView间传递数据
  */
+
 public class SetMealFragment extends Fragment implements View.OnClickListener {
 
-    DragFrameLayout m_dragFrameLayout;
     Context mContext;
     private TextView setMeal1;//套餐1
     private TextView setMeal2;//套餐2
@@ -30,11 +38,12 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
     private TextView setMeal4;//套餐4
     private TextView setMeal5;//套餐5
     private View select;//捣蛋一下
-    private TextView setMeal_yes;//已点套餐
-    private TextView addMaterial_yes;//已点加料
+    private DragView setMeal_yes;//已点套餐
+    private DragView addMaterial_yes;//已点加料
     private View sure;//确定
     private String[] setMeals = new String[5];
     private String[] addMaterials = new String[4];
+
     public SetMealFragment() {
     }
 
@@ -57,7 +66,6 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_setmeal, container, false);
-        m_dragFrameLayout = (DragFrameLayout) view.findViewById(R.id.df_setMeal);
 
         setMeal_yes = view.findViewById(R.id.tv_setMeal_yes);
         addMaterial_yes = view.findViewById(R.id.tv_addMaterial_yes);
@@ -69,10 +77,6 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
         select = view.findViewById(R.id.btn_select);
         sure = view.findViewById(R.id.btn_sure);
 
-        //设置悬浮
-        m_dragFrameLayout.addDragChildView(setMeal_yes);
-        m_dragFrameLayout.addDragChildView(addMaterial_yes);
-
         setMeal1.setOnClickListener(this);
         setMeal2.setOnClickListener(this);
         setMeal3.setOnClickListener(this);
@@ -81,27 +85,28 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
         select.setOnClickListener(this);
         sure.setOnClickListener(this);
 
+
         //恢复选择过的状态
-        if (OrderActivity.STATUS_SETMEAL != 0) {
+        if (STATUS_SETMEAL != 0) {
             select.setVisibility(View.INVISIBLE);
             setMeal_yes.setVisibility(View.VISIBLE);
-            if (OrderActivity.STATUS_SETMEAL == 1) {
+            if (STATUS_SETMEAL == 1) {
                 setMeal_yes.setText(setMeals[0]);
                 setMeal1.setBackgroundColor((getResources().getColor(R.color.chose)));
             }
-            if (OrderActivity.STATUS_SETMEAL == 2) {
+            if (STATUS_SETMEAL == 2) {
                 setMeal_yes.setText(setMeals[1]);
                 setMeal2.setBackgroundColor((getResources().getColor(R.color.chose)));
             }
-            if (OrderActivity.STATUS_SETMEAL == 3) {
+            if (STATUS_SETMEAL == 3) {
                 setMeal_yes.setText(setMeals[2]);
                 setMeal3.setBackgroundColor((getResources().getColor(R.color.chose)));
             }
-            if (OrderActivity.STATUS_SETMEAL == 4) {
+            if (STATUS_SETMEAL == 4) {
                 setMeal_yes.setText(setMeals[3]);
                 setMeal4.setBackgroundColor((getResources().getColor(R.color.chose)));
             }
-            if (OrderActivity.STATUS_SETMEAL == 5) {
+            if (STATUS_SETMEAL == 5) {
                 setMeal_yes.setText(setMeals[4]);
                 setMeal5.setBackgroundColor((getResources().getColor(R.color.chose)));
             }
@@ -140,7 +145,7 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
                 select.setVisibility(View.INVISIBLE);
                 setMeal_yes.setVisibility(View.VISIBLE);
                 setMeal_yes.setText(setMeals[0]);
-                OrderActivity.STATUS_SETMEAL = 1;
+                STATUS_SETMEAL = 1;
                 break;
             case R.id.tv_setMeal_2://套餐
                 setMeal1.setBackgroundColor((getResources().getColor(R.color.normal)));
@@ -151,7 +156,7 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
                 select.setVisibility(View.INVISIBLE);
                 setMeal_yes.setVisibility(View.VISIBLE);
                 setMeal_yes.setText(setMeals[1]);
-                OrderActivity.STATUS_SETMEAL = 2;
+                STATUS_SETMEAL = 2;
                 break;
             case R.id.tv_setMeal_3://套餐
                 setMeal1.setBackgroundColor((getResources().getColor(R.color.normal)));
@@ -162,7 +167,7 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
                 select.setVisibility(View.INVISIBLE);
                 setMeal_yes.setVisibility(View.VISIBLE);
                 setMeal_yes.setText(setMeals[2]);
-                OrderActivity.STATUS_SETMEAL = 3;
+                STATUS_SETMEAL = 3;
                 break;
             case R.id.tv_setMeal_4://套餐
                 setMeal1.setBackgroundColor((getResources().getColor(R.color.normal)));
@@ -173,7 +178,7 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
                 select.setVisibility(View.INVISIBLE);
                 setMeal_yes.setVisibility(View.VISIBLE);
                 setMeal_yes.setText(setMeals[3]);
-                OrderActivity.STATUS_SETMEAL = 4;
+                STATUS_SETMEAL = 4;
                 break;
             case R.id.tv_setMeal_5://套餐
                 setMeal1.setBackgroundColor((getResources().getColor(R.color.normal)));
@@ -184,41 +189,47 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
                 select.setVisibility(View.INVISIBLE);
                 setMeal_yes.setVisibility(View.VISIBLE);
                 setMeal_yes.setText(setMeals[4]);
-                OrderActivity.STATUS_SETMEAL = 5;
+                STATUS_SETMEAL = 5;
                 break;
 
             case R.id.btn_sure://确定
-                Intent intent = new Intent(mContext, SureActivity.class);
-                intent.putExtra("setMeal", OrderActivity.STATUS_SETMEAL);
-                intent.putExtra("addMaterial", OrderActivity.STATUS_ADDMATERIAL);
-                startActivity(intent);
+                if (STATUS_SETMEAL == 0 && STATUS_ADDMATERIAL == 0)
+                    Toast.makeText(mContext, "请至少选择一个套餐", Toast.LENGTH_SHORT).show();
+                else if (STATUS_SETMEAL == 0)
+                    Toast.makeText(mContext, "您还未选择套餐", Toast.LENGTH_SHORT).show();
+                else {
+                    Intent intent = new Intent(mContext, SureActivity.class);
+                    intent.putExtra("setMeal", STATUS_SETMEAL);
+                    intent.putExtra("addMaterial", OrderActivity.STATUS_ADDMATERIAL);
+                    startActivity(intent);
+                }
                 break;
             case R.id.btn_select://捣蛋一下
                 Random r = new Random();
                 int a = r.nextInt(5) + 1;//产生1-5的随机数。nextInt(5)是产生0-4的随机数
                 int b = r.nextInt(4) + 1;//产生1-4的随机数。
-                OrderActivity.STATUS_SETMEAL = a;
+                STATUS_SETMEAL = a;
                 OrderActivity.STATUS_ADDMATERIAL = b;
 
                 select.setVisibility(View.INVISIBLE);//捣蛋一下隐藏
 
-                if (OrderActivity.STATUS_SETMEAL == 1) {//随机选中一个套餐
+                if (STATUS_SETMEAL == 1) {//随机选中一个套餐
                     setMeal1.setBackgroundColor((getResources().getColor(R.color.chose)));
                     setMeal_yes.setVisibility(View.VISIBLE);
                     setMeal_yes.setText(setMeals[0]);
-                } else if (OrderActivity.STATUS_SETMEAL == 2) {
+                } else if (STATUS_SETMEAL == 2) {
                     setMeal2.setBackgroundColor((getResources().getColor(R.color.chose)));
                     setMeal_yes.setVisibility(View.VISIBLE);
                     setMeal_yes.setText(setMeals[1]);
-                } else if (OrderActivity.STATUS_SETMEAL == 3) {
+                } else if (STATUS_SETMEAL == 3) {
                     setMeal3.setBackgroundColor((getResources().getColor(R.color.chose)));
                     setMeal_yes.setVisibility(View.VISIBLE);
                     setMeal_yes.setText(setMeals[2]);
-                } else if (OrderActivity.STATUS_SETMEAL == 4) {
+                } else if (STATUS_SETMEAL == 4) {
                     setMeal4.setBackgroundColor((getResources().getColor(R.color.chose)));
                     setMeal_yes.setVisibility(View.VISIBLE);
                     setMeal_yes.setText(setMeals[3]);
-                } else if (OrderActivity.STATUS_SETMEAL == 5) {
+                } else if (STATUS_SETMEAL == 5) {
                     setMeal5.setBackgroundColor((getResources().getColor(R.color.chose)));
                     setMeal_yes.setVisibility(View.VISIBLE);
                     setMeal_yes.setText(setMeals[4]);
@@ -226,17 +237,19 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
 
                 if (OrderActivity.STATUS_ADDMATERIAL == 1) {//随机选中一个加料
                     addMaterial_yes.setVisibility(View.VISIBLE);
-                    addMaterial_yes.setText( addMaterials[0]);
+                    addMaterial_yes.setText(addMaterials[0]);
                 } else if (OrderActivity.STATUS_ADDMATERIAL == 2) {
                     addMaterial_yes.setVisibility(View.VISIBLE);
-                    addMaterial_yes.setText( addMaterials[1]);
+                    addMaterial_yes.setText(addMaterials[1]);
                 } else if (OrderActivity.STATUS_ADDMATERIAL == 3) {
                     addMaterial_yes.setVisibility(View.VISIBLE);
-                    addMaterial_yes.setText( addMaterials[2]);
+                    addMaterial_yes.setText(addMaterials[2]);
                 } else if (OrderActivity.STATUS_ADDMATERIAL == 4) {
                     addMaterial_yes.setVisibility(View.VISIBLE);
-                    addMaterial_yes.setText( addMaterials[3]);
+                    addMaterial_yes.setText(addMaterials[3]);
                 }
         }
+
+
     }
 }
