@@ -3,7 +3,7 @@ package cn.org.bjca.yami.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PredictionData implements Serializable{
+public class PredictionBean implements Serializable{
 
     private int retcode;//响应码
     private ArrayList<Food> foods;

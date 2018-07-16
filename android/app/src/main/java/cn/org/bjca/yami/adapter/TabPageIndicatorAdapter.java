@@ -9,15 +9,16 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import cn.org.bjca.yami.bean.PredictionData;
+import cn.org.bjca.yami.bean.PredictionBean;
 import cn.org.bjca.yami.view.ItemFragment;
 
+//预告页的adapter
 public class TabPageIndicatorAdapter extends FragmentPagerAdapter {
     protected ArrayList<Fragment> views;//存放pager的每个条目
     private String[] weekday;//周几，指示器的标题
-    private ArrayList<PredictionData.Food> oldFoods;
+    private ArrayList<PredictionBean.Food> oldFoods;
 
-    public TabPageIndicatorAdapter(FragmentManager fm, ArrayList<PredictionData.Food> foods) {
+    public TabPageIndicatorAdapter(FragmentManager fm, ArrayList<PredictionBean.Food> foods) {
         super(fm);
         oldFoods = foods;
 

@@ -121,12 +121,19 @@ public class SureActivity extends AppCompatActivity implements View.OnClickListe
                             OrderActivity.STATUS_SETMEAL = 0;
                             Toast.makeText(SureActivity.this, "订餐成功", Toast.LENGTH_SHORT).show();
                             finish();
+
                         }
 
                         @Override
                         public void onFailure(HttpException error, String msg) {
                             error.printStackTrace();
-                            Toast.makeText(SureActivity.this, "订餐失败，网络错误", Toast.LENGTH_SHORT).show();
+                            // Toast.makeText(SureActivity.this, "订餐失败，网络错误", Toast.LENGTH_SHORT).show();
+                            //TODO  以下等连通服务器后删除
+                            OrderActivity.STATUS_ADDMATERIAL = 0;//清零点餐信息
+                            OrderActivity.STATUS_SETMEAL = 0;
+                            Toast.makeText(SureActivity.this, "订餐成功", Toast.LENGTH_SHORT).show();
+                            finish();
+
                         }
                     });
 

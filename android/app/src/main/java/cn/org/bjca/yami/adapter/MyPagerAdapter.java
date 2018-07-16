@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import cn.org.bjca.yami.R;
 
+//主页的adapter
 public class MyPagerAdapter extends PagerAdapter {
     Context mContext;
 

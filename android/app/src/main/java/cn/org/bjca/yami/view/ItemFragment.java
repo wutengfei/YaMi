@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import cn.org.bjca.yami.R;
-import cn.org.bjca.yami.bean.PredictionData;
+import cn.org.bjca.yami.bean.PredictionBean;
 
 
 public class ItemFragment extends Fragment {
@@ -31,7 +31,7 @@ public class ItemFragment extends Fragment {
 
         //获取Activity传递过来的参数
         Bundle mBundle = getArguments();
-        PredictionData.Food foods = (PredictionData.Food) mBundle.getSerializable("food");
+        PredictionBean.Food foods = (PredictionBean.Food) mBundle.getSerializable("food");
         if (foods != null) {//填充数据
             mTitle.setText(foods.getPeopleName());
             setMeal1.setText(foods.getSetMeal1());

@@ -1,13 +1,10 @@
 package cn.org.bjca.yami;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
 
@@ -22,10 +19,9 @@ import com.viewpagerindicator.TitlePageIndicator;
 import java.util.ArrayList;
 
 import cn.org.bjca.yami.adapter.TabPageIndicatorAdapter;
-import cn.org.bjca.yami.bean.PredictionData;
+import cn.org.bjca.yami.bean.PredictionBean;
 import cn.org.bjca.yami.utils.GlobalPara;
 import cn.org.bjca.yami.view.CustomToolBar;
-import cn.org.bjca.yami.view.ItemFragment;
 
 /**
  * 预告页
@@ -35,7 +31,7 @@ public class PredictionActivity extends FragmentActivity implements
 
     private ViewPager pager;
     private int currentPosition = 0;//当前页面
-    private ArrayList<PredictionData.Food> foods;//从服务端获取的食品信息
+    private ArrayList<PredictionBean.Food> foods;//从服务端获取的食品信息
     private TitlePageIndicator indicator;//指示器
 
     @Override
@@ -84,9 +80,9 @@ public class PredictionActivity extends FragmentActivity implements
 
     protected void parseData(String result) {
         Gson gson = new Gson();
-        PredictionData data1 = gson.fromJson(result, PredictionData.class);
+        PredictionBean data = gson.fromJson(result, PredictionBean.class);
 
-        foods = data1.getFoods();
+        foods = data.getFoods();
 
         FragmentPagerAdapter adapter = new TabPageIndicatorAdapter(getSupportFragmentManager(), foods);
         pager.setAdapter(adapter);

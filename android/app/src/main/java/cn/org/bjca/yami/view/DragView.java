@@ -23,8 +23,8 @@ public class DragView extends TextView {
 
     //是否拖动
     private boolean isDrag = false;
-    private int viewTopY;
-    private int viewLeftX;
+    private int viewTopY;//view上边的Y坐标
+    private int viewLeftX;//view左边的X坐标
 
     public boolean isDrag() {
         return isDrag;
