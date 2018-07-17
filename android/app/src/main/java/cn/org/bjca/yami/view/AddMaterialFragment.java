@@ -173,7 +173,7 @@ public class AddMaterialFragment extends Fragment implements View.OnClickListene
             addMaterial2.setBackgroundColor((getResources().getColor(R.color.normal)));
             addMaterial3.setBackgroundColor((getResources().getColor(R.color.normal)));
             addMaterial4.setBackgroundColor((getResources().getColor(R.color.normal)));
-            select.setVisibility(View.VISIBLE);
+            if (STATUS_SETMEAL == 0) select.setVisibility(View.VISIBLE);
         }
     }
 
@@ -227,10 +227,7 @@ public class AddMaterialFragment extends Fragment implements View.OnClickListene
                 else if (STATUS_SETMEAL == 0)
                     Toast.makeText(mContext, "您还未选择套餐", Toast.LENGTH_SHORT).show();
                 else {
-                    Intent intent = new Intent(mContext, SureActivity.class);
-                    intent.putExtra("setMeal", STATUS_SETMEAL);
-                    intent.putExtra("addMaterial", OrderActivity.STATUS_ADDMATERIAL);
-                    startActivity(intent);
+                    jumpSureActivity();
                 }
                 break;
             case R.id.btn_select://捣蛋一下
@@ -277,5 +274,21 @@ public class AddMaterialFragment extends Fragment implements View.OnClickListene
                     setMeal_yes.setText(setMeals[4]);
                 }
         }
+    }
+
+    private void jumpSureActivity() {
+        Intent intent = new Intent(mContext, SureActivity.class);
+
+        if (STATUS_SETMEAL == 1) intent.putExtra("setMeal", setMeals[0]);
+        else if (STATUS_SETMEAL == 2) intent.putExtra("setMeal", setMeals[1]);
+        else if (STATUS_SETMEAL == 3) intent.putExtra("setMeal", setMeals[2]);
+        else if (STATUS_SETMEAL == 4) intent.putExtra("setMeal", setMeals[3]);
+        else if (STATUS_SETMEAL == 5) intent.putExtra("setMeal", setMeals[4]);
+
+        if (STATUS_ADDMATERIAL == 1) intent.putExtra("addMaterial", addMaterials[0]);
+        else if (STATUS_ADDMATERIAL == 2) intent.putExtra("addMaterial", addMaterials[1]);
+        else if (STATUS_ADDMATERIAL == 3) intent.putExtra("addMaterial", addMaterials[2]);
+        else if (STATUS_ADDMATERIAL == 4) intent.putExtra("addMaterial", addMaterials[3]);
+        startActivity(intent);
     }
 }

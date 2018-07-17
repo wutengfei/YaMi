@@ -6,7 +6,7 @@ package cn.org.bjca.yami.utils;
  */
 
 public class GlobalPara {
-    public static final String SERVER_URL = "http://192.168.0.108:8080/bjca";//根地址
+    public static final String SERVER_URL = "http://192.168.42.81:8080/bjca";//根地址
     public static final String PREDICTION_URL =
             SERVER_URL + "/prediction/prediction.json";// 预告页的url
     public static final String ORDER_URL =

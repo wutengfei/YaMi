@@ -48,8 +48,8 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
     private DragView setMeal_yes;//已点套餐
     private DragView addMaterial_yes;//已点加料
     private View sure;//确定
-    private String[] setMeals = new String[5];
-    private String[] addMaterials = new String[4];
+    private String[] setMeals = new String[5];//套餐详情
+    private String[] addMaterials = new String[4];//加料详情
 
     private ArrayList<FoodBean.SetMeal> setMeal;
     private ArrayList<FoodBean.AddMaterial> addMaterial;
@@ -164,7 +164,7 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
             setMeal3.setBackgroundColor((getResources().getColor(R.color.normal)));
             setMeal4.setBackgroundColor((getResources().getColor(R.color.normal)));
             setMeal5.setBackgroundColor((getResources().getColor(R.color.normal)));
-            select.setVisibility(View.VISIBLE);
+            if (STATUS_ADDMATERIAL == 0) select.setVisibility(View.VISIBLE);
         }
 
         if (OrderActivity.STATUS_ADDMATERIAL != 0) {//加料状态不为零时，显示加料信息
@@ -253,10 +253,7 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
                 else if (STATUS_SETMEAL == 0)
                     Toast.makeText(mContext, "您还未选择套餐", Toast.LENGTH_SHORT).show();
                 else {
-                    Intent intent = new Intent(mContext, SureActivity.class);
-                    intent.putExtra("setMeal", STATUS_SETMEAL);
-                    intent.putExtra("addMaterial", OrderActivity.STATUS_ADDMATERIAL);
-                    startActivity(intent);
+                    jumpSureActivity();
                 }
                 break;
             case R.id.btn_select://捣蛋一下
@@ -306,5 +303,21 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
         }
 
 
+    }
+
+    private void jumpSureActivity() {
+        Intent intent = new Intent(mContext, SureActivity.class);
+
+        if (STATUS_SETMEAL == 1) intent.putExtra("setMeal", setMeals[0]);
+        else if (STATUS_SETMEAL == 2) intent.putExtra("setMeal", setMeals[1]);
+        else if (STATUS_SETMEAL == 3) intent.putExtra("setMeal", setMeals[2]);
+        else if (STATUS_SETMEAL == 4) intent.putExtra("setMeal", setMeals[3]);
+        else if (STATUS_SETMEAL == 5) intent.putExtra("setMeal", setMeals[4]);
+
+        if (STATUS_ADDMATERIAL == 1) intent.putExtra("addMaterial", addMaterials[0]);
+        else if (STATUS_ADDMATERIAL == 2) intent.putExtra("addMaterial", addMaterials[1]);
+        else if (STATUS_ADDMATERIAL == 3) intent.putExtra("addMaterial", addMaterials[2]);
+        else if (STATUS_ADDMATERIAL == 4) intent.putExtra("addMaterial", addMaterials[3]);
+        startActivity(intent);
     }
 }
