@@ -1,4 +1,4 @@
-package cn.org.bjca.yami;
+package cn.org.bjca.yami.activity.order;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import cn.org.bjca.yami.R;
+import cn.org.bjca.yami.SysApplication;
 import cn.org.bjca.yami.view.AddMaterialFragment;
 import cn.org.bjca.yami.view.CustomToolBar;
 import cn.org.bjca.yami.view.SetMealFragment;

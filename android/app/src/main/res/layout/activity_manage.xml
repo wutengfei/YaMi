@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.org.bjca.yami.ManageActivity">
+    tools:context="cn.org.bjca.yami.activity.manage.ManageActivity">
 
     <TextView
         android:id="@+id/textView3"

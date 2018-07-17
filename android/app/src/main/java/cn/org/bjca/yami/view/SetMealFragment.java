@@ -23,14 +23,14 @@ import com.lidroid.xutils.http.client.HttpRequest;
 import java.util.ArrayList;
 import java.util.Random;
 
-import cn.org.bjca.yami.OrderActivity;
+import cn.org.bjca.yami.activity.order.OrderActivity;
 import cn.org.bjca.yami.R;
-import cn.org.bjca.yami.SureActivity;
+import cn.org.bjca.yami.activity.order.SureActivity;
 import cn.org.bjca.yami.bean.FoodBean;
 import cn.org.bjca.yami.utils.GlobalPara;
 
-import static cn.org.bjca.yami.OrderActivity.STATUS_ADDMATERIAL;
-import static cn.org.bjca.yami.OrderActivity.STATUS_SETMEAL;
+import static cn.org.bjca.yami.activity.order.OrderActivity.STATUS_ADDMATERIAL;
+import static cn.org.bjca.yami.activity.order.OrderActivity.STATUS_SETMEAL;
 
 /**
  * 套餐Fragment

@@ -1,4 +1,4 @@
-package cn.org.bjca.yami;
+package cn.org.bjca.yami.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import cn.org.bjca.yami.R;
+import cn.org.bjca.yami.SysApplication;
+import cn.org.bjca.yami.activity.interaction.InteractionActivity;
+import cn.org.bjca.yami.activity.manage.ManageActivity;
+import cn.org.bjca.yami.activity.order.OrderActivity;
 import cn.org.bjca.yami.adapter.MyPagerAdapter;
 import me.crosswall.lib.coverflow.CoverFlow;
 import me.crosswall.lib.coverflow.core.PagerContainer;

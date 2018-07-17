@@ -89,7 +89,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="2dp"
+                android:layout_height="3dp"
                 android:layout_weight="3"
                 android:background="#6495ED">
 
@@ -97,9 +97,9 @@
 
             <Button
                 android:id="@+id/btn_sure"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/sure"
                 android:text="确定" />
         </LinearLayout>
 
@@ -108,7 +108,7 @@
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:background="#6495ED"
+            android:background="@drawable/shape_select"
             android:text="捣蛋一下" />
     </LinearLayout>
 

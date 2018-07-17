@@ -10,8 +10,8 @@ import android.widget.TextView;
 import cn.org.bjca.yami.R;
 import cn.org.bjca.yami.utils.ScreenUtil;
 
-import static cn.org.bjca.yami.OrderActivity.STATUS_ADDMATERIAL;
-import static cn.org.bjca.yami.OrderActivity.STATUS_SETMEAL;
+import static cn.org.bjca.yami.activity.order.OrderActivity.STATUS_ADDMATERIAL;
+import static cn.org.bjca.yami.activity.order.OrderActivity.STATUS_SETMEAL;
 
 public class DragView extends TextView {
 

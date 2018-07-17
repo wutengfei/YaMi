@@ -1,4 +1,4 @@
-package cn.org.bjca.yami;
+package cn.org.bjca.yami.activity.order;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -18,6 +18,8 @@ import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.ArrayList;
 
+import cn.org.bjca.yami.R;
+import cn.org.bjca.yami.SysApplication;
 import cn.org.bjca.yami.adapter.TabPageIndicatorAdapter;
 import cn.org.bjca.yami.bean.PredictionBean;
 import cn.org.bjca.yami.utils.GlobalPara;

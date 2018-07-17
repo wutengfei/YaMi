@@ -1,4 +1,4 @@
-package cn.org.bjca.yami;
+package cn.org.bjca.yami.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.animation.*;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import cn.org.bjca.yami.R;
+import cn.org.bjca.yami.SysApplication;
 
 /**
  * 闪屏页

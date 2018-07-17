@@ -14,12 +14,12 @@
 
         <!-- 闪屏页 -->
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:theme="@style/SplashTheme" />
         <!-- 订餐页 -->
-        <activity android:name=".OrderActivity" />
+        <activity android:name=".activity.order.OrderActivity" />
         <!-- 主页 -->
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,12 +28,12 @@
         </activity>
         <!-- 预告页 -->
         <activity
-            android:name=".PredictionActivity"
+            android:name=".activity.order.PredictionActivity"
             android:theme="@style/Theme.PageIndicatorDefaults" />
         <!-- 确定页 -->
-        <activity android:name=".SureActivity" />
-        <activity android:name=".ManageActivity" />
-        <activity android:name=".InteractionActivity"></activity>
+        <activity android:name=".activity.order.SureActivity" />
+        <activity android:name=".activity.manage.ManageActivity" />
+        <activity android:name=".activity.interaction.InteractionActivity"></activity>
     </application>
 
 </manifest>

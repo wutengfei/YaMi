@@ -1,4 +1,4 @@
-package cn.org.bjca.yami;
+package cn.org.bjca.yami.activity.order;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +24,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import cn.org.bjca.yami.R;
+import cn.org.bjca.yami.SysApplication;
 import cn.org.bjca.yami.utils.GlobalPara;
 import cn.org.bjca.yami.view.CustomToolBar;
 

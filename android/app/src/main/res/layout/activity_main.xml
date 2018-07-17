@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
     android:orientation="vertical"
-    tools:context="cn.org.bjca.yami.MainActivity">
+    tools:context="cn.org.bjca.yami.activity.MainActivity">
 
     <TextView
         android:layout_width="match_parent"
