@@ -23,7 +23,7 @@
         android:id="@+id/tv_time"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="距离点餐截止还剩" />
+        android:text="" />
 
     <TextView
         android:layout_width="match_parent"

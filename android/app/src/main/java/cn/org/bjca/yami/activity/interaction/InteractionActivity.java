@@ -18,7 +18,6 @@ public class InteractionActivity extends AppCompatActivity implements  View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去除标题栏
         setContentView(R.layout.activity_interaction);
         getSupportActionBar().hide();//隐藏标题栏
         SysApplication.getInstance().addActivity(this);
