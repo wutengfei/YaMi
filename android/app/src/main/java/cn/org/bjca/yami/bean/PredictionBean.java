@@ -3,7 +3,7 @@ package cn.org.bjca.yami.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PredictionBean implements Serializable{
+public class PredictionBean implements Serializable {
 
     private int retcode;//响应码
     private ArrayList<Food> foods;
@@ -24,7 +24,7 @@ public class PredictionBean implements Serializable{
         this.foods = foods;
     }
 
-    public class Food  implements Serializable{
+    public class Food implements Serializable {
         private String id;
         private String weekday;//周几
         private String peopleName;//人名
@@ -37,6 +37,23 @@ public class PredictionBean implements Serializable{
         private String addMaterial2;
         private String addMaterial3;
         private String addMaterial4;
+
+        public Food(String id, String weekday, String peopleName,
+                    String setMeal1, String setMeal2, String setMeal3, String setMeal4, String setMeal5,
+                    String addMaterial1, String addMaterial2, String addMaterial3, String addMaterial4) {
+            this.id = id;
+            this.weekday = weekday;
+            this.setMeal1 = setMeal1;
+            this.setMeal2 = setMeal2;
+            this.setMeal3 = setMeal3;
+            this.peopleName = peopleName;
+            this.setMeal4 = setMeal4;
+            this.setMeal5 = setMeal5;
+            this.addMaterial1 = addMaterial1;
+            this.addMaterial4 = addMaterial4;
+            this.addMaterial3 = addMaterial3;
+            this.addMaterial2 = addMaterial2;
+        }
 
         public String getId() {
             return id;

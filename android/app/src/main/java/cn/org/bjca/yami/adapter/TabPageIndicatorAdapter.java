@@ -16,11 +16,11 @@ import cn.org.bjca.yami.view.ItemFragment;
 public class TabPageIndicatorAdapter extends FragmentPagerAdapter {
     protected ArrayList<Fragment> views;//存放pager的每个条目
     private String[] weekday;//周几，指示器的标题
-    private ArrayList<PredictionBean.Food> oldFoods;
+    private ArrayList<PredictionBean.Food> foods;
 
     public TabPageIndicatorAdapter(FragmentManager fm, ArrayList<PredictionBean.Food> foods) {
         super(fm);
-        oldFoods = foods;
+        this.foods = foods;
 
         views = new ArrayList<>();
 
@@ -47,8 +47,8 @@ public class TabPageIndicatorAdapter extends FragmentPagerAdapter {
         Fragment fragment = new ItemFragment();
         Bundle args = new Bundle();
 
-        if (oldFoods != null) {
-            args.putSerializable("food", oldFoods.get(position % 5));
+        if (foods != null) {
+            args.putSerializable("food", foods.get(position % 5));
             fragment.setArguments(args);
         }
         return fragment;
@@ -61,7 +61,7 @@ public class TabPageIndicatorAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return oldFoods.size();
+        return foods.size();
     }
 
     @Override

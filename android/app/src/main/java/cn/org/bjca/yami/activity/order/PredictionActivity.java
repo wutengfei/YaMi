@@ -1,5 +1,6 @@
 package cn.org.bjca.yami.activity.order;
 
+import android.gesture.Prediction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -43,7 +44,9 @@ public class PredictionActivity extends FragmentActivity implements
         setContentView(R.layout.activity_prediction);
         SysApplication.getInstance().addActivity(this);
         initView();
-        getDataFromServer();//解析服务端传来的数据
+        falseData();//假数据
+        //TODO 暂时使用假数据
+        //   getDataFromServer();//解析服务端传来的数据
     }
 
     private void initView() {
@@ -59,6 +62,32 @@ public class PredictionActivity extends FragmentActivity implements
         indicator = (TitlePageIndicator) findViewById(R.id.indicator);
 
         indicator.setOnPageChangeListener(this);//指示器设置监听
+    }
+
+    //TODO 假数据，回头删
+    private void falseData() {
+        PredictionBean preBean = new PredictionBean();
+        PredictionBean.Food food1 = preBean.new Food("10001", "周一", "赵老师", "套餐1", "套餐2",
+                "套餐3", "套餐4", "套餐5", "加料1", "加料2", "加料3", "加料4");
+        PredictionBean.Food food2 = preBean.new Food("10002", "周二", "钱老师", "套餐1", "套餐2",
+                "套餐3", "套餐4", "套餐5", "加料1", "加料2", "加料3", "加料4");
+        PredictionBean.Food food3 = preBean.new Food("10003", "周三", "孙老师", "套餐1", "套餐2",
+                "套餐3", "套餐4", "套餐5", "加料1", "加料2", "加料3", "加料4");
+        PredictionBean.Food food4 = preBean.new Food("10004", "周四", "李老师", "套餐1", "套餐2",
+                "套餐3", "套餐4", "套餐5", "加料1", "加料2", "加料3", "加料4");
+        PredictionBean.Food food5 = preBean.new Food("10005", "周五", "周老师", "套餐1", "套餐2",
+                "套餐3", "套餐4", "套餐5", "加料1", "加料2", "加料3", "加料4");
+        foods = new ArrayList<PredictionBean.Food>();
+        foods.add(food1);
+        foods.add(food2);
+        foods.add(food3);
+        foods.add(food4);
+        foods.add(food5);
+
+        FragmentPagerAdapter adapter = new TabPageIndicatorAdapter(getSupportFragmentManager(), foods);
+        pager.setAdapter(adapter);
+        pager.setCurrentItem(1);
+        indicator.setViewPager(pager);
     }
 
     private void getDataFromServer() {
