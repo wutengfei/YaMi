@@ -4,7 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
 
 import cn.org.bjca.yami.R;
@@ -23,8 +26,8 @@ public class DragView extends TextView {
 
     //是否拖动
     private boolean isDrag = false;
-    private int viewTopY;//view上边的Y坐标
-    private int viewLeftX;//view左边的X坐标
+    public static int viewTopY;//view上边的Y坐标
+    public static int viewLeftX;//view左边的X坐标
 
     public boolean isDrag() {
         return isDrag;
@@ -114,16 +117,13 @@ public class DragView extends TextView {
                     int viewY = location[1];
 
                     int screenHeight = ScreenUtil.getScreenHeight(context);
-                    Log.e("location", "X:" + viewX + "---Y:" + viewY + "---screenH:" + screenHeight);
-                    if (viewY < 2 * screenHeight / 3) {//当view拖动到屏幕的1/3以上就隐藏
-                        this.setVisibility(View.INVISIBLE);
+                    Log.i("location", "X:" + viewX + "---Y:" + viewY + "---screenH:" + screenHeight);
+                    if (viewY < 2 * screenHeight / 3) {//当view拖动到屏幕的1/3以上就消失
+                        startAnimation();//消失动画
                         if (this.getId() == R.id.tv_setMeal_yes || this.getId() == R.id.tv_setMeal_yes2)
                             STATUS_SETMEAL = 0;//清空已点套餐的状态
                         if (this.getId() == R.id.tv_addMaterial_yes || this.getId() == R.id.tv_addMaterial_yes2)
                             STATUS_ADDMATERIAL = 0;//清空已点加料的状态
-                        //恢复view初始的位置
-                        this.setHeight(viewTopY);
-                        this.setWidth(viewLeftX);
                     }
                     this.destroyDrawingCache();
 
@@ -137,6 +137,28 @@ public class DragView extends TextView {
             return true;
         }
         return false;
+    }
+
+    private void startAnimation() {
+        // 动画集合
+        AnimationSet set = new AnimationSet(false);
+        // 缩放动画
+        ScaleAnimation scale = new ScaleAnimation(1, 1.2f, 1, 1.2f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        scale.setDuration(1000);// 动画时间
+        scale.setFillAfter(true);// 保持动画状态
+
+        // 渐变动画
+        AlphaAnimation alpha = new AlphaAnimation(1, 0);
+        alpha.setDuration(1000);// 动画时间
+        alpha.setFillAfter(true);// 保持动画状态
+
+        set.addAnimation(scale);
+        set.addAnimation(alpha);
+
+        this.startAnimation(set);
+        this.setVisibility(GONE);
     }
 
     @Override

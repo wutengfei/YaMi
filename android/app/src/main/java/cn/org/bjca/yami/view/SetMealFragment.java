@@ -10,6 +10,8 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ import cn.org.bjca.yami.R;
 import cn.org.bjca.yami.activity.order.SureActivity;
 import cn.org.bjca.yami.bean.FoodBean;
 import cn.org.bjca.yami.utils.GlobalPara;
+import cn.org.bjca.yami.utils.ScreenUtil;
 
 import static cn.org.bjca.yami.activity.order.OrderActivity.STATUS_ADDMATERIAL;
 import static cn.org.bjca.yami.activity.order.OrderActivity.STATUS_SETMEAL;
@@ -86,6 +89,8 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
         select.setOnClickListener(this);
         sure.setOnClickListener(this);
 
+        falseData();//TODO 假数据,后续删掉
+
         getDataFromServer();//从服务器获取信息
         return view;
     }
@@ -103,7 +108,6 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void onFailure(HttpException error, String msg) {
                         error.printStackTrace();
-
                     }
                 });
 
@@ -130,6 +134,24 @@ public class SetMealFragment extends Fragment implements View.OnClickListener {
         onStart();
     }
 
+    private void falseData() {
+        setMeals[0]="套餐一";
+        setMeals[1]="套餐二";
+        setMeals[2]="套餐三";
+        setMeals[3]="套餐四";
+        setMeals[4]="套餐五";
+        addMaterials[0]="加料一";
+        addMaterials[1]="加料二";
+        addMaterials[2]="加料三";
+        addMaterials[3]="加料四";
+        setMeal1.setText(setMeals[0]);
+        setMeal2.setText(setMeals[1]);
+        setMeal3.setText(setMeals[2]);
+        setMeal4.setText(setMeals[3]);
+        setMeal5.setText(setMeals[4]);
+
+        onStart();
+    }
     @Override
     public void onStart() { //恢复选择过的状态
         super.onStart();

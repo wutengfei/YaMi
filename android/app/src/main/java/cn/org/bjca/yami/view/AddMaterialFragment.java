@@ -80,6 +80,8 @@ public class AddMaterialFragment extends Fragment implements View.OnClickListene
         addMaterial3.setOnClickListener(this);
         addMaterial4.setOnClickListener(this);
 
+        falseData();//TODO 假数据,后续删掉
+
         getDataFromServer();//从服务器获取信息
         return view;
     }
@@ -97,7 +99,6 @@ public class AddMaterialFragment extends Fragment implements View.OnClickListene
                     @Override
                     public void onFailure(HttpException error, String msg) {
                         error.printStackTrace();
-
                     }
                 });
 
@@ -115,6 +116,24 @@ public class AddMaterialFragment extends Fragment implements View.OnClickListene
             addMaterials[i] = addMaterial.get(i).getAddMaterialHead() + "\n"
                     + addMaterial.get(i).getAddMaterialBody();
         }
+        addMaterial1.setText(addMaterials[0]);
+        addMaterial2.setText(addMaterials[1]);
+        addMaterial3.setText(addMaterials[2]);
+        addMaterial4.setText(addMaterials[3]);
+
+        onStart();
+    }
+
+    private void falseData() {
+        setMeals[0] = "套餐一";
+        setMeals[1] = "套餐二";
+        setMeals[2] = "套餐三";
+        setMeals[3] = "套餐四";
+        setMeals[4] = "套餐五";
+        addMaterials[0] = "加料一";
+        addMaterials[1] = "加料二";
+        addMaterials[2] = "加料三";
+        addMaterials[3] = "加料四";
         addMaterial1.setText(addMaterials[0]);
         addMaterial2.setText(addMaterials[1]);
         addMaterial3.setText(addMaterials[2]);
